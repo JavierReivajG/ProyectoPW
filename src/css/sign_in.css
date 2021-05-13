@@ -1,3 +1,10 @@
+:root {
+    --fondo: rgb(51,56,90);
+    --contenedores: rgb(32,36,66);
+    --botones: rgb(65,205,125);
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,5 +13,165 @@
 
 html {
     font-size: 62.5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+li {
+    list-style: none;
+}
+
+.body-signing {
+    background-color: var(--fondo);
+}
+
+
+.main-container-sign_in {
+    display: flex;
+    justify-content: center;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+}
+
+
+.section-container {
+    background-color: var(--contenedores);
+    border-radius: 25px;
+    width: 70vw;
+    min-width: 340px;
+    height: 70vh;
+    min-height: 300px;
+}
+
+.container-iner {
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iner-singin  {
+    min-width: 260px;
+    color: white;
+    font-size: 2.5rem;
+    width: 60vw;
+    margin-bottom: 3vh;
+    font-weight: 600;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+.email-input {
+    border: none;
+    outline: none;
+    background-color: var(--fondo);
+    padding: 10px;
+    border-radius: 30px;
+    width: 55vw;
+    min-width: 260px;
+    margin-bottom: 2.5vh;
+    color: var(--botones);
+}
+
+.password-input {
+    border: none;
+    outline: none;
+    background-color: var(--fondo);
+    padding: 10px;
+    border-radius: 30px;
+    width: 55vw;
+    min-width: 260px;
+    margin-bottom: 2.5vh;
+    color: var(--botones);
+}
+
+.iner-botons {
+    color: rgba(255, 255, 255, 0.452);
+    font-size: 1.1rem;
+    width: 75%;
+}
+
+.iner-botons label {
+    float: left;
+}
+
+.iner-botons a {
+    float: right;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.452);
+    padding-left: 5px;
+}
+
+.iner-sign-button button{
+    margin-top: 2vh;
+    background-color: var(--botones);
+    border: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    width: 55vw;
+    border-radius: 15px;
+    padding: 8px;
+    color: rgba(0, 0, 0, 0.712);
+    min-width: 260px;
+    cursor: pointer;
+}
+
+.iner-lineal {
+    color:rgba(255, 255, 255, 0.452);
+    font-size: 1.2rem;
+    margin: 20px;
+}
+
+.iner-icons {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    
+}
+
+.iner-icons .face-icon  {
+    width: 10%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.iner-icons .goog-icon  {
+    width: 10%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.iner-icons .twit-icon  {
+    width: 10%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+
+.iner-create-acount{
+    align-items: center;
+    margin-top: 16vh;
+}
+
+.iner-create-acount span {
+    color: rgba(255, 255, 255, 0.452);
+    font-size: 1.2rem;
+    width: 75%; 
+}
+
+.iner-create-acount a {
+    color: rgba(255, 255, 255, 0.452);
+    font-size: 1.2rem;
+    width: 75%; 
+    color: var(--botones);
+    text-decoration: none;
+}
