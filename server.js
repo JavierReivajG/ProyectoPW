@@ -22,7 +22,7 @@ app.use(passport.session());
 
 
 passport.use(new PassportLocal(function(username,password,done){
-    if(username === "123" && password ==="123")
+    if(username === "javier" && password ==="javier")
     return done (null, {id:1,name:"javier" });
 
     done(null,false);
@@ -40,11 +40,15 @@ passport.deserializeUser(function(id,done){
 
 app.set('view engine', 'ejs');
 
-app.get("/",(req,res)=> {
+app.get("/",(req,res,next)=>{
+   if(req.isAuthenticated()) return next();
+
+   res.redirect("/login");
+},(req,res)=> {
     //si ya iniciamos mostrar bienvenida
 
     //si no, mostrar login
-    app.send ("hola");
+    res.send ("hola");
 });
 
 app.get("/login",(req,res)=>{
