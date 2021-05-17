@@ -266,6 +266,10 @@ html {
         float: left;
     }
     
+    .iner-botons .recordar {
+        float: left;
+    }
+
     .iner-botons a {
         float: right;
         text-decoration: none;
@@ -286,6 +290,12 @@ html {
         min-width: 260px;
         cursor: pointer;
     }
+
+    .iner-sign-button button:hover {
+        color: rgb(255, 255, 255);
+        box-shadow: 3px 3px 2px 2px rgba(17, 17, 17, 0.911);
+    }
+
     
     .iner-lineal {
         color:rgba(255, 255, 255, 0.452);
