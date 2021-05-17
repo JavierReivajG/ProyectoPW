@@ -323,6 +323,7 @@ html {
         color: rgba(255, 255, 255, 0.452);
         font-size: 3rem;
         width: 55%; 
+        margin-left: 10px;
         color: var(--botones);
         text-decoration: none;
     }
