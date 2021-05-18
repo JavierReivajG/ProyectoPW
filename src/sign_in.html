@@ -11,33 +11,30 @@
 <body class="body-signing">
     <main class="main-container-sign_in">
         <section class="section-container">
-            <ul class="container-iner">
+            <ul class="container-iner"> 
                 <li class="iner-singin"><p>Iniciar Sesion</p></li>
                 <li class="iner-email">
-                    <form action="">
-                        <span class="email-icon"></span>
-                        <input autocomplete="username" class="email-input" placeholder="correo@ejemplo.com" type="text" id="username">
-                    </form>
-                </li>
-                <li class="iner-password">
-                    <form action="">
+                    <form class="container-iner"  action="">
+                        <span id="correo-comprobacion"></span>
+                        <input autocomplete="username" class="logininput" placeholder="correo@ejemplo.com" type="text" id="username">
                         <span class="password-icon"></span>
-                        <input autocomplete="current-password" class="password-input" placeholder="contraseña" type="password" id="password">
+                        <input autocomplete="current-password" class="logininput" placeholder="contraseña" type="password" id="password">
+                        <li class="iner-botons">
+                            <a class="recordar" href="">Recordar contraseña</a><a class="" href="">Terminos y Condiciones</a>
+                        </li>
+                        <input class="iner-sign-button" type="submit" value="Vamos!">
                     </form>
                 </li>
-                <li class="iner-botons">
-                    <div>
-                        <a class="recordar" href="">Recordar contraseña</a><a class="" href="">Terminos y Condiciones</a>
-                    </div>
-                </li>
-                <li class="iner-sign-button"><button type="submit" onclick="iniciarsesion();">Vamos!</button></li>
                 <li class="iner-lineal"><p>Otras</p></li>
                 <li class="iner-icons">
                     <img class="face-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1365px-Facebook_f_logo_%282019%29.svg.png" alt="">
                     <img class="goog-icon" src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="">
                     <img class="twit-icon" src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-4.png" alt="">
                 </li>
-                <li class="iner-create-acount"><span>No tienes cuenta?</span> <a href="./sign_up.html"> Crea una nueva!</a></li>
+                <li class="iner-create-acount">
+                    <span>No tienes cuenta?</span>
+                    <a href="./sign_up.html"> Crea una nueva!</a>
+                </li>
             </ul>
         </section>
     </main>
