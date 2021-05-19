@@ -31,7 +31,7 @@ html {
     .main-container-sign_in {
         display: flex;
         justify-content: center;
-        margin-top: 15vh;
+        margin-top: 5vh;
         margin-bottom: 15vh;
     }
     
@@ -259,7 +259,7 @@ html {
         cursor: pointer;
     }
 
-    .iner-sign-button button:hover {
+    .iner-sign-button:hover {
         color: rgb(255, 255, 255);
         box-shadow: 3px 3px 2px 2px rgba(17, 17, 17, 0.911);
     }
@@ -328,5 +328,7 @@ html {
 
     /*css de JS*/
 
+
+  
 
 }

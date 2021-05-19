@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="./css/sign_in.css">
-    <script src="/src/js/Sing_in.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,10 +14,10 @@
                 <li class="iner-singin"><p>Iniciar Sesion</p></li>
                 <li class="iner-email">
                     <form class="container-iner"  action="">
-                        <span id="correo-comprobacion"></span>
-                        <input autocomplete="username" class="logininput" placeholder="correo@ejemplo.com" type="text" id="username">
+                        <span class="invalid" id="correo-comprobacion"></span>
+                        <input autocomplete="username" class="logininput" placeholder="correo@ejemplo.com" type="text" name="username" id="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="La direccion de correo electronica no es valida" required>>
                         <span class="password-icon"></span>
-                        <input autocomplete="current-password" class="logininput" placeholder="contraseña" type="password" id="password">
+                        <input autocomplete="current-password" class="logininput" placeholder="contraseña" type="password" name="password" id="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required>
                         <li class="iner-botons">
                             <a class="recordar" href="">Recordar contraseña</a><a class="" href="">Terminos y Condiciones</a>
                         </li>
