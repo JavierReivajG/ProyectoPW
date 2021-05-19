@@ -85,10 +85,17 @@ html {
     
     }
 
+    .iner-botons a:hover {
+        color: var(--botones);
+    }
+
     .iner-botons .recordar  {
         padding-right: 1.5vh;
     }
     
+    .iner-botons .recordar:hover {
+        color: var(--botones);
+    }
     .iner-sign-button {
         margin-top: 2vh;
         background-color: var(--botones);
@@ -101,6 +108,11 @@ html {
         color: rgba(0, 0, 0, 0.712);
         min-width: 260px;
         cursor: pointer;
+    }
+
+    .iner-sign-button:hover {
+        color: rgb(255, 255, 255);
+        box-shadow: 3px 3px 2px 2px rgba(17, 17, 17, 0.911);
     }
     
     .iner-lineal {
@@ -238,11 +250,19 @@ html {
         float: left;
     }
 
+    .iner-botons .recordar:hover {
+        color: var(--botones);
+    }
+
     .iner-botons a {
         float: right;
         text-decoration: none;
         color: rgba(255, 255, 255, 0.452);
         padding-left: 5px;
+    }
+
+    .iner-botons a:hover {
+        color: var(--botones);
     }
     
     .iner-sign-button{
