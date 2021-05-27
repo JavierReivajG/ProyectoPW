@@ -32,7 +32,7 @@ html {
         display: flex;
         justify-content: center;
         margin-top: 5vh;
-        margin-bottom: 10vh;
+        margin-bottom: 5h;
     }
     
     
@@ -40,141 +40,114 @@ html {
         background-color: var(--contenedores);
         border-radius: 25px;
         width: 70vw;
-        min-width: 340px;
+        min-width: 350px;
         height: 70vh;
         min-height: 450px;
+        
     }
     
     .container-iner {
-        margin-top: 15%;
+        margin-top: 5%;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
     
-    .iner-singin  {
+    .iner-singup  {
         min-width: 260px;
         color: white;
-        font-size: 2.5rem;
+        font-size: 2rem;
         width: 60vw;
-        margin-bottom: 3vh;
+        text-align: center;
         font-weight: 600;
         text-decoration: none;
         list-style: none;
     }
     
-    
-    .email-input {
+    .form-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .logininput {
         border: none;
         outline: none;
         background-color: var(--fondo);
-        padding: 10px;
+        padding: 15px;
         border-radius: 30px;
-        width: 55vw;
+        width: 20vw;
+        font-size: 1rem;
         min-width: 260px;
         margin-bottom: 2.5vh;
         color: var(--botones);
     }
     
-    .password-input {
-        border: none;
-        outline: none;
-        background-color: var(--fondo);
-        padding: 10px;
-        border-radius: 30px;
-        width: 55vw;
-        min-width: 260px;
-        margin-bottom: 2.5vh;
-        color: var(--botones);
-    }
+   
     
     .iner-botons {
         color: rgba(255, 255, 255, 0.452);
-        font-size: 1.1rem;
-        width: 75%;
+        font-size: 2.5rem;
+        font-weight: 500;
+        width: 90%;
     }
     
-    .iner-botons label {
+
+    
+    .iner-botons .recordar {
         float: left;
     }
-    
+
+    .iner-botons .recordar:hover {
+        color: var(--botones);
+    }
+
     .iner-botons a {
-        text-align: right;
+        float: right;
         text-decoration: none;
         color: rgba(255, 255, 255, 0.452);
         padding-left: 5px;
     }
+
+    .iner-botons a:hover {
+        color: var(--botones);
+    }
     
-    .iner-sign-button button{
-        margin-top: 2vh;
+    .iner-sign-button{
+        margin-top: 3vh;
         background-color: var(--botones);
         border: none;
-        font-size: 1.6rem;
+        font-size: 2rem;
         font-weight: 600;
-        width: 55vw;
+        width: 30vw;
         border-radius: 15px;
         padding: 8px;
         color: rgba(0, 0, 0, 0.712);
         min-width: 260px;
         cursor: pointer;
     }
-    
-    .iner-lineal {
-        color:rgba(255, 255, 255, 0.452);
-        font-size: 1.5rem;
-        margin-top: 10px;
+
+    .iner-sign-button:hover {
+        color: rgb(255, 255, 255);
+        box-shadow: 3px 3px 2px 2px rgba(17, 17, 17, 0.911);
     }
-    
-    .iner-icons {
-        display: flex;
-        width: 80%;
-        justify-content: center;
-        
-    }
-    
-    .iner-icons .face-icon  {
-        width: 10%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        cursor: pointer;
-        margin: 0 10px;
-    }
-    
-    .iner-icons .goog-icon  {
-        width: 10%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        cursor: pointer;
-        margin: 0 10px;
-    }
-    
-    .iner-icons .twit-icon  {
-        width: 10%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        cursor: pointer;
-        margin: 0 10px;
-    }
-    
-    
+   
     .iner-create-acount{
         align-items: center;
-        margin-top: 3vh;
+        margin-top: 2%;
     }
     
     .iner-create-acount span {
         color: rgba(255, 255, 255, 0.452);
-        font-size: 1.2rem;
+        font-size: 2rem;
         width: 75%; 
     }
     
     .iner-create-acount a {
         color: rgba(255, 255, 255, 0.452);
-        font-size: 1.2rem;
+        font-size: 3rem;
         width: 75%; 
+        margin-left: 10px;
         color: var(--botones);
         text-decoration: none;
     }
@@ -185,8 +158,8 @@ html {
         flex-direction: column;
         gap: 5px;
         width: 100%;
-        height: 40vh;
-        min-height: 250px;
+        height: 45vh;
+        min-height: 200px;
         overflow-y: scroll;
         scroll-snap-type: y proximity;
     }
@@ -213,7 +186,7 @@ html {
         display: flex;
         justify-content: center;
         margin-top: 5vh;
-        margin-bottom: 10vh;
+        margin-bottom: 5h;
     }
     
     
@@ -221,96 +194,101 @@ html {
         background-color: var(--contenedores);
         border-radius: 25px;
         width: 70vw;
-        min-width: 340px;
-        height: 70%;
+        min-width: 350px;
+        height: 70vh;
         min-height: 450px;
+        
     }
     
     .container-iner {
-        margin-top: 2%;
+        margin-top: 5%;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
     
-    .iner-singin  {
+    .iner-singup  {
         min-width: 260px;
         color: white;
         font-size: 5rem;
-        text-align: center;
         width: 60vw;
-        margin-bottom: 3vh;
+        text-align: center;
         font-weight: 600;
         text-decoration: none;
         list-style: none;
     }
     
-    
-    .email-input {
+    .form-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .logininput {
         border: none;
         outline: none;
         background-color: var(--fondo);
         padding: 20px;
         border-radius: 30px;
-        font-size: 2rem;
         width: 30vw;
-        min-width: 60px;
-        margin-bottom: 2vh;
+        font-size: 2rem;
+        min-width: 260px;
+        margin-bottom: 2.5vh;
         color: var(--botones);
     }
     
-    .password-input {
-        border: none;
-        outline: none;
-        background-color: var(--fondo);
-        padding: 20px;
-        border-radius: 30px;
-        font-size: 2rem;
-        width: 30vw;
-        min-width: 60px;
-        margin-bottom: 2vh;
-        color: var(--botones);
-    }
+   
     
     .iner-botons {
         color: rgba(255, 255, 255, 0.452);
-        font-size: 4rem;
-        width: 35%;
+        font-size: 2.5rem;
+        font-weight: 500;
+        width: 90%;
     }
     
 
     
+    .iner-botons .recordar {
+        float: left;
+    }
+
+    .iner-botons .recordar:hover {
+        color: var(--botones);
+    }
+
     .iner-botons a {
-        text-align: right;
+        float: right;
         text-decoration: none;
         color: rgba(255, 255, 255, 0.452);
         padding-left: 5px;
     }
+
+    .iner-botons a:hover {
+        color: var(--botones);
+    }
     
-    .iner-sign-button button{
-        margin-top: 10%;
+    .iner-sign-button{
+        margin-top: 3vh;
         background-color: var(--botones);
         border: none;
-        font-size: 3rem;
+        font-size: 4rem;
         font-weight: 600;
-        width: 25vw;
+        width: 30vw;
         border-radius: 15px;
         padding: 8px;
         color: rgba(0, 0, 0, 0.712);
         min-width: 260px;
         cursor: pointer;
     }
-    
-    .iner-lineal {
-        color:rgba(255, 255, 255, 0.452);
-        font-size: 3rem;
-        margin: 5px;
+
+    .iner-sign-button:hover {
+        color: rgb(255, 255, 255);
+        box-shadow: 3px 3px 2px 2px rgba(17, 17, 17, 0.911);
     }
-    
+   
     .iner-create-acount{
         align-items: center;
         margin-top: 2%;
-        margin-bottom: 2%;
     }
     
     .iner-create-acount span {
@@ -322,7 +300,7 @@ html {
     .iner-create-acount a {
         color: rgba(255, 255, 255, 0.452);
         font-size: 3rem;
-        width: 55%; 
+        width: 75%; 
         margin-left: 10px;
         color: var(--botones);
         text-decoration: none;
