@@ -13,6 +13,16 @@ CREATE SCHEMA IF NOT EXISTS `prep` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4
 
 
 USE `prep` ;
+
+CREATE TABLE IF NOT EXISTS `prep`.`candidaturas` (
+  `candidatura_id` INT NOT NULL AUTO_INCREMENT,
+  `puesto` VARCHAR(45) NOT NULL,
+  `duracion` INT NOT NULL,
+  Primary key (`candidatura_id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+  
 CREATE TABLE IF NOT EXISTS `prep`.`domicilios` (
   `domicilio_id` INT NOT NULL AUTO_INCREMENT,
   `direccion` VARCHAR(45) NOT NULL,
@@ -27,8 +37,8 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `prep`.`seccionales` (
   `seccion` INT NOT NULL AUTO_INCREMENT,
-  `entidad` VARCHAR(45) NULL DEFAULT NULL,
-  `distrito` VARCHAR(45) NULL DEFAULT NULL,
+  `entidad` VARCHAR(45) NOT NULL,
+  `distrito` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`seccion`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -55,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `prep`.`partidos` (
   `partido_id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `no_votos` INT NOT NULL,
-  `alianza_id` INT NOT NULL,
+  `alianza_id` INT,
   PRIMARY KEY (`partido_id`),
   INDEX `fk_partidos_ALIANZAS1_idx` (`alianza_id` ASC) VISIBLE,
   CONSTRAINT `fk_partidos_ALIANZAS1`
@@ -71,9 +81,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `prep`.`candidatos` (
   `candidato_id` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NULL DEFAULT NULL,
-  `domicilio_id` INT NOT NULL,
+  `candidatura_id` INT NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
   `partido_id` INT NOT NULL,
+  `domicilio_id` INT NULL,
   PRIMARY KEY (`candidato_id`),
   INDEX `fk_CANDIDATOS_DOMICILIO1_idx` (`domicilio_id` ASC) VISIBLE,
   INDEX `fk_candidatos_partidos1_idx` (`partido_id` ASC) VISIBLE,
@@ -85,6 +96,10 @@ CREATE TABLE IF NOT EXISTS `prep`.`candidatos` (
   CONSTRAINT `fk_candidatos_partidos1`
     FOREIGN KEY (`partido_id`)
     REFERENCES `prep`.`partidos` (`partido_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (`candidatura_id`)
+    REFERENCES `prep`.`candidaturas` (`candidatura_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
@@ -111,7 +126,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `prep`.`registros` (
   `registro_id` INT NOT NULL AUTO_INCREMENT,
-  `candidatura` VARCHAR(45) NULL DEFAULT NULL,
+  `candidatura_id` INT NOT NULL,
   `casilla_id` INT NOT NULL,
   `candidato_id` INT NOT NULL,
   `partido_id` INT NOT NULL,
@@ -129,6 +144,10 @@ CREATE TABLE IF NOT EXISTS `prep`.`registros` (
     REFERENCES `prep`.`casillas` (`casilla_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
+    FOREIGN KEY (`candidatura_id`)
+    REFERENCES `prep`.`candidaturas` (`candidatura_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,  
   CONSTRAINT `fk_registros_partidos1`
     FOREIGN KEY (`partido_id`)
     REFERENCES `prep`.`partidos` (`partido_id`)
@@ -141,13 +160,13 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `prep`.`usuarios` (
   `usuario_id` INT NOT NULL AUTO_INCREMENT,
-  `tipo_usuario` VARCHAR(45) NULL,
-  `nombre` VARCHAR(45) NULL,
-  `username` VARCHAR(45) NULL,
-  `email` VARCHAR(45) NULL,
-  `contraseña` VARCHAR(45) NULL,
-  `no_telefono` VARCHAR(45) NULL,
-  `red_social` VARCHAR(45) NULL,
+  `tipo_usuario` VARCHAR(45) NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `username` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `contraseña` VARCHAR(45) NOT NULL,
+  `no_telefono` VARCHAR(45) NOT NULL,
+  `red_social` VARCHAR(45),
   `domicilio_id` INT NOT NULL,
   PRIMARY KEY (`usuario_id`),
   INDEX `fk_usuarios_DOMICILIOS1_idx` (`domicilio_id` ASC) VISIBLE,
