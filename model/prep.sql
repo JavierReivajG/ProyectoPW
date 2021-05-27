@@ -89,7 +89,6 @@ CREATE TABLE IF NOT EXISTS `prep`.`candidatos` (
   `nombre` VARCHAR(45) NOT NULL,
   `partido_id` INT NOT NULL,
   PRIMARY KEY (`candidato_id`),
-  INDEX `fk_CANDIDATOS_DOMICILIO1_idx` (`domicilio_id` ASC) VISIBLE,
   INDEX `fk_candidatos_partidos1_idx` (`partido_id` ASC) VISIBLE,
   CONSTRAINT `fk_candidatos_partidos1`
     FOREIGN KEY (`partido_id`)
