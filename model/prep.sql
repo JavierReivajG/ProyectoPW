@@ -15,7 +15,8 @@ USE `prep` ;
 CREATE TABLE IF NOT EXISTS `prep`.`candidaturas` (
   `candidatura_id` INT NOT NULL AUTO_INCREMENT,
   `puesto` VARCHAR(45) NOT NULL,
-  `duracion` INT NOT NULL,
+  `municipio` VARCHAR(45),
+  `distrito` INT,  
   Primary key (`candidatura_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -139,7 +140,8 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `prep`.`domicilios` (
   `domicilio_id` INT NOT NULL AUTO_INCREMENT,
   `usuario_id` INT NOT NULL,
-  `direccion` VARCHAR(45) NOT NULL,
+  `calle` VARCHAR(45) NOT NULL,
+  `numero` VARCHAR(20), 
   `colonia` VARCHAR(45) NOT NULL,
   `cp` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`domicilio_id`),
