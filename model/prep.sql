@@ -140,6 +140,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `prep`.`domicilios` (
   `domicilio_id` INT NOT NULL AUTO_INCREMENT,
   `usuario_id` INT NOT NULL,
+  `municipio` VARCHAR(45) NOT NULL,
   `calle` VARCHAR(45) NOT NULL,
   `numero` VARCHAR(20), 
   `colonia` VARCHAR(45) NOT NULL,
