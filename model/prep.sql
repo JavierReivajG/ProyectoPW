@@ -10,34 +10,17 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- ----------------------------------------------------
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `prep` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
-
-
 USE `prep` ;
 
 CREATE TABLE IF NOT EXISTS `prep`.`candidaturas` (
   `candidatura_id` INT NOT NULL AUTO_INCREMENT,
   `puesto` VARCHAR(45) NOT NULL,
-  `duracion` INT NOT NULL,
+  `municipio` VARCHAR(45),
+  `distrito` INT,  
   Primary key (`candidatura_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-  
-CREATE TABLE IF NOT EXISTS `prep`.`domicilios` (
-  `domicilio_id` INT NOT NULL AUTO_INCREMENT,
-  `usuario_id` INT NOT NULL,
-  `direccion` VARCHAR(45) NOT NULL,
-  `colonia` VARCHAR(45) NOT NULL,
-  `cp` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`domicilio_id`),
-  FOREIGN KEY (`usuario_id`)
-    REFERENCES `prep`.`alianzas` (`alianza_id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
 
 CREATE TABLE IF NOT EXISTS `prep`.`seccionales` (
   `seccion` INT NOT NULL AUTO_INCREMENT,
@@ -48,10 +31,6 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
-
--- -----------------------------------------------------
--- Table `prep`.`alianzas`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `prep`.`alianzas` (
   `alianza_id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
@@ -61,10 +40,6 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
-
--- -----------------------------------------------------
--- Table `prep`.`partidos`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `prep`.`partidos` (
   `partido_id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
@@ -79,10 +54,6 @@ CREATE TABLE IF NOT EXISTS `prep`.`partidos` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `prep`.`candidatos`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `prep`.`candidatos` (
   `candidato_id` INT NOT NULL AUTO_INCREMENT,
   `candidatura_id` INT NOT NULL,
@@ -103,9 +74,6 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
--- -----------------------------------------------------
--- Table `prep`.`casillas`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `prep`.`casillas` (
   `casilla_id` INT NOT NULL AUTO_INCREMENT,
   `tipo_casilla` VARCHAR(45) NULL DEFAULT NULL,
@@ -125,8 +93,8 @@ CREATE TABLE IF NOT EXISTS `prep`.`registros` (
   `registro_id` INT NOT NULL AUTO_INCREMENT,
   `candidatura_id` INT NOT NULL,
   `casilla_id` INT NOT NULL,
-  `candidato_id` INT NOT NULL,
-  `partido_id` INT NOT NULL,
+  `candidato_id` INT,
+  `partido_id` INT,
   PRIMARY KEY (`registro_id`),
   INDEX `fk_REGISTROS_CASILLAS1_idx` (`casilla_id` ASC) VISIBLE,
   INDEX `fk_REGISTROS_CANDIDATOS1_idx` (`candidato_id` ASC) VISIBLE,
@@ -154,7 +122,6 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
-
 CREATE TABLE IF NOT EXISTS `prep`.`usuarios` (
   `usuario_id` INT NOT NULL AUTO_INCREMENT,
   `tipo_usuario` VARCHAR(45) NOT NULL,
@@ -164,9 +131,28 @@ CREATE TABLE IF NOT EXISTS `prep`.`usuarios` (
   `contraseña` VARCHAR(45) NOT NULL,
   `no_telefono` VARCHAR(45) NOT NULL,
   `red_social` VARCHAR(45),
-  PRIMARY KEY (`usuario_id`),
-  INDEX `fk_usuarios_DOMICILIOS1_idx` (`domicilio_id` ASC) VISIBLE)
-ENGINE = InnoDB;
+  PRIMARY KEY (`usuario_id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE IF NOT EXISTS `prep`.`domicilios` (
+  `domicilio_id` INT NOT NULL AUTO_INCREMENT,
+  `usuario_id` INT NOT NULL,
+  `municipio` VARCHAR(45) NOT NULL,
+  `calle` VARCHAR(45) NOT NULL,
+  `numero` VARCHAR(20), 
+  `colonia` VARCHAR(45) NOT NULL,
+  `cp` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`domicilio_id`),
+  FOREIGN KEY (`usuario_id`)
+    REFERENCES `prep`.`usuarios` (`usuario_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
