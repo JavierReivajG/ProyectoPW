@@ -28,5 +28,3 @@ INSERT INTO candidaturas VALUES(3,'Diputado Local',null,null);
 
 -- INSERTS DE LAS SECCIONALES
 
-
-
