@@ -46,25 +46,36 @@
         </section>
         <section class="main-section--registrar">
             <div class="partidos-container">
-                <p>Registrar un partido</p>
+                <p>Registrar una casilla</p>
             </div>
-            <form action="">
-                <input type="text">
-                <input type="text">
-                <input type="com">
-                <input type="text"  list="exampleList">
-                <datalist id="exampleList">
-                    <option value="A">  
-                    <option value="B">
-                    <option value="c">
-                </datalist>
+            <form class="casilla-form" action="">
+                <label for="Municipio">Municipio</label>
+                <input class="Municipio" type="text" placeholder="Ejemplo: Guadalajara">
+                <label for="Seleccional">Seleccional</label>
+                <select class="selecional" name="Seleccional" id="Seleccional">
+                  <option value="Tonala">Tonala</option>
+                  <option value="Guadalajara">Guadalajara</option>
+                  <option value="Tlaquepaque">Tlaquepaque</option>
+                  <option value="Zapopan">Zapopan</option>
+                  <option value="Tlajomulco">Tlajomulco</option>
+                  <option value="Otra">Otra</option>
+                </select>
+                <input class="numero-distritos" type="number" placeholder="Numero de distritos">
+                <label for="casilla">Tipo de casilla</label>
+                <select class="casilla" name="casilla" id="casilla">
+                  <option value="Basica">Basica</option>
+                  <option value="Contigua">Contigua</option>
+                  <option value="Especial">Especial</option>
+                  <option value="Extraordinaria">Extraordinaria</option>
+                  <option value="Otra">Otra</option>
+                </select>
+                <input class="Form-botom" type="submit" value="Registrar">
             </form>
-
         </section>
     </main>
     <footer class="main-footer">
         <section class="footer-section">
-            <p>a</p>
+            <p></p>
         </section>
     </footer>
 </body>
