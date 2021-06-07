@@ -7,7 +7,7 @@ public class Conexion {
     public DriverManagerDataSource Conectar (){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3307/escuela");
+        dataSource.setUrl("jdbc:mysql://localhost:3307/prep");
         dataSource.setUsername("root");
         dataSource.setPassword("3366");
         return dataSource;

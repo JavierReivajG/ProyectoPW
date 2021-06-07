@@ -23,6 +23,10 @@
                 <prop key="agregar.htm">controlador</prop>
                 <prop key="editar.htm">controlador</prop>
                 <prop key="borrar.htm">controlador</prop>
+                <prop key="registrar.htm">controlador</prop>
+                <prop key="sign_in.htm">controlador</prop>
+                <prop key="votar.htm">controlador</prop>
+                
             </props>
         </property>
     </bean>

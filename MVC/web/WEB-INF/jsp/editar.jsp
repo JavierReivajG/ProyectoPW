@@ -15,12 +15,12 @@
                 </div>
                 <div class ="card-body">
                     <form method="POST">
-                        <label>Codigo</label>
-                        <input type="text" name="cod" class="form-control" value="${lista[0].Codigo}">
-                        <label>Nombre</label>
+                        <!--<label>Alianza_id</label>
+                        <input type="text" name="cod" class="form-control" value="${lista[0].alianza_id}">
+                        --><label>Nombre</label>
                         <input type="text" name="nom" class="form-control" value ="${lista[0].Nombre}">
-                        <label>Domicilio</label>
-                        <input type="text" name="domi" class="form-control" value="${lista[0].Domicilio}"><BR>
+                        <label>No_votos</label>
+                        <input type="text" name="votos" class="form-control" value="${lista[0].no_votos}"><BR>
                         <input type="submit" value="Actualizar" class="btn btn-success">
                         <a href="index.htm">Regresar</a>
                     </form>

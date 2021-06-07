@@ -15,27 +15,29 @@
         <div class="container mt-4">
             <div class = "card border-info ">
                 <div class="card-header bg-info text-white">
-                    <a class = "btn btn-light" href = "agregar.htm">Agregar Alumno</a>
+                    <a class = "btn btn-light" href = "agregar.htm">Agregar Alianza</a>
+                    <a class = "btn btn-light" href = "registrar.htm">Registrarse</a>
+
                 </div>
                 <div class="card-body">
                     <table class="table" table-hover>
                         <thead>
                             <tr>
-                                <th>Codigo</th>
+                                <th>Alianza_id</th>
                                 <th>Nombre</th>
-                                <th>Domicilio</th>
+                                <th>No_votos</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <c:forEach var="dato" items = "${lista}">
                             <tr>
-                                <td>${dato.Codigo}</td>
-                                <td>${dato.Nombre}</td>
-                                <td>${dato.Domicilio}</td>
+                                <td>${dato.alianza_id}</td>
+                                <td>${dato.nombre}</td>
+                                <td>${dato.no_votos}</td>
                                 <td>
-                                    <a href = "editar.htm?codigo=${dato.Codigo}" class = "btn btn-warning">Editar</a>
-                                    <a href = "borrar.htm?codigo=${dato.Codigo}" class = "btn btn-danger">Delete</a>
+                                    <a href = "editar.htm?codigo=${dato.alianza_id}" class = "btn btn-warning">Editar</a>
+                                    <a href = "borrar.htm?codigo=${dato.alianza_id}" class = "btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                             </c:forEach>

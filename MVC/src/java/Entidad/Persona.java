@@ -3,25 +3,25 @@ package Entidad;
 
 public class Persona {
 
-int Cod;
+int ID;
 String Nom;
-String Domi;
+int Votos;
 
     public Persona() {
     }    
 
-    public Persona(int Cod, String Nom, String Domi) {
-        this.Cod = Cod;
+    public Persona(int ID, String Nom, int Votos) {
+        this.ID = ID;
         this.Nom = Nom;
-        this.Domi = Domi;   
+        this.Votos = Votos;   
     }
 
-    public int getCod() {
-        return Cod;
+    public int getID() {
+        return ID;
     }
 
-    public void setCod(int Cod) {
-        this.Cod = Cod;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getNom() {
@@ -32,12 +32,12 @@ String Domi;
         this.Nom = Nom;
     }
 
-    public String getDomi() {
-        return Domi;
+    public int getVotos() {
+        return Votos;
     }
 
-    public void setDomi(String Domi) {
-        this.Domi = Domi;
+    public void setVotos(int Votos) {
+        this.Votos = Votos;
     }
     
 }

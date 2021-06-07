@@ -15,12 +15,12 @@
                 </div>
                 <div class ="card-body">
                     <form method="POST">
-                        <label>Codigo</label>
-                        <input type="text" name="cod" class="form-control">
+                        <!--<label>Alianza_id</label>
+                        <input type="text" name="cod" class="form-control">-->
                         <label>Nombre</label>
                         <input type="text" name="nom" class="form-control">
-                        <label>Domicilio</label>
-                        <input type="text" name="domi" class="form-control"><BR>
+                        <label>No_votos</label>
+                        <input type="text" name="votos" class="form-control"><BR>
                         <input type="submit" value="Agregar" class="btn btn-success">
                         <a href="index.htm">Regresar</a>
                     </form>
