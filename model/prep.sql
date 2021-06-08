@@ -2,7 +2,7 @@
 -- jue 27 may 2021 10:56:18
 -- Model: New Model    Version: 1.0
 -- MySQL Workbench Forward Engineering
-
+DROP DATABASE IF EXISTS prep;
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -22,36 +22,11 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE IF NOT EXISTS `prep`.`seccionales` (
-  `seccion` INT NOT NULL AUTO_INCREMENT,
-  `entidad` VARCHAR(45) NOT NULL,
-  `distrito` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`seccion`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-CREATE TABLE IF NOT EXISTS `prep`.`alianzas` (
-  `alianza_id` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NOT NULL,
-  `no_votos` INT NOT NULL,
-  PRIMARY KEY (`alianza_id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
 CREATE TABLE IF NOT EXISTS `prep`.`partidos` (
   `partido_id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
-  `no_votos` INT NOT NULL,
-  `alianza_id` INT,
-  PRIMARY KEY (`partido_id`),
-  INDEX `fk_partidos_ALIANZAS1_idx` (`alianza_id` ASC) VISIBLE,
-  CONSTRAINT `fk_partidos_ALIANZAS1`
-    FOREIGN KEY (`alianza_id`)
-    REFERENCES `prep`.`alianzas` (`alianza_id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+  `alianza` VARCHAR(45),
+  PRIMARY KEY (`partido_id`))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `prep`.`candidatos` (
@@ -75,61 +50,45 @@ DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `prep`.`casillas` (
-  `casilla_id` INT NOT NULL AUTO_INCREMENT,
-  `tipo_casilla` VARCHAR(45) NULL DEFAULT NULL,
+  `casilla_id` INT NOT NULL,
   `seccion` INT NOT NULL,
-  PRIMARY KEY (`casilla_id`),
-  INDEX `fk_CASILLAS_SECCIONALES_idx` (`seccion` ASC) VISIBLE,
-  CONSTRAINT `fk_CASILLAS_SECCIONALES`
-    FOREIGN KEY (`seccion`)
-    REFERENCES `prep`.`seccionales` (`seccion`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+  `tipo_casilla` VARCHAR(45),
+  PRIMARY KEY (`casilla_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `prep`.`registros` (
   `registro_id` INT NOT NULL AUTO_INCREMENT,
-  `candidatura_id` INT NOT NULL,
-  `casilla_id` INT NOT NULL,
-  `candidato_id` INT,
+  `candidatura_id` INT,
   `partido_id` INT,
+  `no_votos` INT,
+  `casilla_id` INT,
   PRIMARY KEY (`registro_id`),
-  INDEX `fk_REGISTROS_CASILLAS1_idx` (`casilla_id` ASC) VISIBLE,
-  INDEX `fk_REGISTROS_CANDIDATOS1_idx` (`candidato_id` ASC) VISIBLE,
-  INDEX `fk_registros_partidos1_idx` (`partido_id` ASC) VISIBLE,
-  CONSTRAINT `fk_REGISTROS_CANDIDATOS1`
-    FOREIGN KEY (`candidato_id`)
-    REFERENCES `prep`.`candidatos` (`candidato_id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_REGISTROS_CASILLAS1`
-    FOREIGN KEY (`casilla_id`)
-    REFERENCES `prep`.`casillas` (`casilla_id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-    FOREIGN KEY (`candidatura_id`)
-    REFERENCES `prep`.`candidaturas` (`candidatura_id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,  
-  CONSTRAINT `fk_registros_partidos1`
-    FOREIGN KEY (`partido_id`)
-    REFERENCES `prep`.`partidos` (`partido_id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+  FOREIGN KEY (`casilla_id`)
+  REFERENCES `prep`.`casillas` (`casilla_id`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE,  
+  FOREIGN KEY (`candidatura_id`)
+  REFERENCES `prep`.`candidaturas` (`candidatura_id`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE,  
+  FOREIGN KEY (`partido_id`)
+  REFERENCES `prep`.`partidos` (`partido_id`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE)
+  ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `prep`.`usuarios` (
   `usuario_id` INT NOT NULL AUTO_INCREMENT,
-  `tipo_usuario` VARCHAR(45) NOT NULL,
-  `nombre` VARCHAR(45) NOT NULL,
-  `username` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `contraseña` VARCHAR(45) NOT NULL,
-  `no_telefono` VARCHAR(45) NOT NULL,
+  `tipo_usuario` VARCHAR(45) ,
+  `nombre` VARCHAR(45) ,
+  `apellido` VARCHAR(45),
+  `email` VARCHAR(45),
+  `contraseña` VARCHAR(45),
+  `no_telefono` VARCHAR(45),
   `red_social` VARCHAR(45),
   PRIMARY KEY (`usuario_id`))
 ENGINE = InnoDB
@@ -143,8 +102,8 @@ CREATE TABLE IF NOT EXISTS `prep`.`domicilios` (
   `municipio` VARCHAR(45) NOT NULL,
   `calle` VARCHAR(45) NOT NULL,
   `numero` VARCHAR(20), 
-  `colonia` VARCHAR(45) NOT NULL,
-  `cp` VARCHAR(45) NOT NULL,
+  `colonia` VARCHAR(45),
+  `cp` VARCHAR(10),
   PRIMARY KEY (`domicilio_id`),
   FOREIGN KEY (`usuario_id`)
     REFERENCES `prep`.`usuarios` (`usuario_id`)
