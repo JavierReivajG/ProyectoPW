@@ -3,40 +3,41 @@ package Entidad;
 
 public class Voto {
  
-    String Nomp;
-    String Nomdf;
-    String Nomdl;
+    int Par;
+    int Can;
+    int Vot;
     
     public Voto(){
     }
     
-     public Voto(String Nomp, String Nomdf, String Nomdl) {
-        this.Nomp = Nomp;
-        this.Nomdf = Nomdf;
-        this.Nomdl = Nomdl;
+     public Voto(int Par, int Can, int Vot, int Cas) {
+        this.Par = Par;
+        this.Can = Can;
+        this.Vot = Vot;
     }    
 
-    public String getNomp() {
-        return Nomp;
+    public int getPar() {
+        return Par;
     }
 
-    public void setNomp(String Nomp) {
-        this.Nomp = Nomp;
+    public void setPar(int Par) {
+        this.Par = Par;
+    }
+     
+     public int getCan() {
+        return Can;
     }
 
-    public String getNomdf() {
-        return Nomdf;
+    public void setCan(int Can) {
+        this.Can = Can;
     }
 
-    public void setNomdf(String Nomdf) {
-        this.Nomdf = Nomdf;
+    public int getVot() {
+        return Vot;
     }
 
-    public String getNomdl() {
-        return Nomdl;
+    public void setVot(int Vot) {
+        this.Vot = Vot;
     }
-
-    public void setNomdl(String Nomdl) {
-        this.Nomdl = Nomdl;
-    }
+    
 }

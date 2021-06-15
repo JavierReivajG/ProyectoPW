@@ -2,9 +2,9 @@
 package Controller;
 
 import Config.Conexion;
-import Entidad.Persona;
 import Entidad.Registro;
 import Entidad.Voto;
+import Entidad.Usuario;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -23,25 +23,30 @@ public class Controlador {
     
     @RequestMapping("index.htm")
     public ModelAndView Listar(){
-        String sql="Select * from alianzas";
-        datos=this.jdbcTemplate.queryForList(sql);
-        mav.addObject("lista",datos);
+        //String sql="Select * from alianzas";
+        //datos=this.jdbcTemplate.queryForList(sql);
+        //mav.addObject("lista",datos);
         mav.setViewName("index");
         return mav;
     }
-    @RequestMapping(value = "agregar.htm", method = RequestMethod.GET)
-    public ModelAndView Agregar(){
-        mav.addObject(new Persona());
-        mav.setViewName("agregar");
+    
+    @RequestMapping(value = "sign_up.htm", method = RequestMethod.GET)
+    public ModelAndView Sign_up(){
+        mav.addObject(new Usuario());
+        mav.setViewName("sign_up");
         return mav;
     }
-    @RequestMapping(value = "agregar.htm", method = RequestMethod.POST)
-    public ModelAndView Agregar(Persona p){
-        String sql = "Insert into alianzas(nombre, no_votos)values(?,?)";
-        this.jdbcTemplate.update(sql,p.getNom(),p.getVotos());//getDomi?
+    
+    @RequestMapping(value = "sign_up.htm", method = RequestMethod.POST)
+    public ModelAndView Sign_up(Usuario u){
+        String sql = "INSERT INTO usuarios (nombre, apellido, email, contraseña, no_telefono, red_social) values (?,?,?,?,?,?)";
+        this.jdbcTemplate.update(sql, u.getNom(), u.getApe(), u.getEmail(), u.getPass(), u.getTel(), u.getRed());
+        sql = "INSERT INTO domicilios (usuario_id, municipio, calle, numero, colonia, cp) values ((SELECT MAX(usuario_id) FROM usuarios),?,?,?,?,?)";
+        this.jdbcTemplate.update(sql,u.getMun(),u.getCalle(),u.getNum(),u.getCol(),u.getCp());
+        sql = "CREATE USER '"+u.getNom()+"'@'localhost' IDENTIFIED BY '"+u.getPass()+"'";
+        this.jdbcTemplate.update(sql);
         return new ModelAndView("redirect:/index.htm");
     }
-    
     
     @RequestMapping(value = "registrar.htm", method = RequestMethod.GET)
     public ModelAndView Registrar(){
@@ -51,13 +56,10 @@ public class Controlador {
     }
     @RequestMapping(value = "registrar.htm", method = RequestMethod.POST)
     public ModelAndView Registrar(Registro r){
-        String sql = "Insert into seccionales(seccion, distrito, entidad)values(?,?,?)";
-        this.jdbcTemplate.update(sql,r.getSec(),r.getDist(),r.getEnt());
-        sql = "Insert into casillas (tipo_casilla, seccion) values(?,?)";
-        this.jdbcTemplate.update(sql, r.getCas(),r.getSec());
-        return new ModelAndView("redirect:/index.htm");
+        String sql = "Insert into casillas (casilla_id, tipo_casilla, seccion) values(?,?,?)";
+        this.jdbcTemplate.update(sql, r.getId(), r.getCas(),r.getSec());
+        return new ModelAndView("redirect:/votar.htm");
     }
-    
     
     @RequestMapping(value = "votar.htm", method = RequestMethod.GET)
     public ModelAndView Votar(){
@@ -67,36 +69,8 @@ public class Controlador {
     }
     @RequestMapping(value = "votar.htm", method = RequestMethod.POST)
     public ModelAndView Votar(Voto v){
-        String sql = "UPDATE partidos SET no_votos = no_votos+1 WHERE nombre = ?";
-        this.jdbcTemplate.update(sql,v.getNomp());
-        sql = "UPDATE partidos SET no_votos = no_votos+1 WHERE nombre = ?";
-        this.jdbcTemplate.update(sql,v.getNomdf());
-        sql = "UPDATE partidos SET no_votos = no_votos+1 WHERE nombre = ?";
-        this.jdbcTemplate.update(sql,v.getNomdl());
-        return new ModelAndView("redirect:/index.htm");
-    }
-    
-    
-    @RequestMapping(value = "editar.htm", method = RequestMethod.GET)
-    public ModelAndView Ediar(HttpServletRequest request){
-        codigo = Integer.parseInt(request.getParameter("codigo"));//Codigo = Codigo !
-        String sql = "Select * from alianzas Where alianza_id = "+codigo;
-        datos=this.jdbcTemplate.queryForList(sql);
-        mav.addObject("lista",datos);
-        mav.setViewName("editar");
-        return mav;
-    }
-    @RequestMapping(value = "editar.htm", method = RequestMethod.POST)
-    public ModelAndView Editar(Persona p){
-        String sql="update alianzas set alianza_id = ?, nombre = ?, no_votos = ? Where alianza_id = "+codigo;
-        this.jdbcTemplate.update(sql,p.getID(),p.getNom(),p.getVotos());
-        return new ModelAndView("redirect:/index.htm");
-    }
-    @RequestMapping(value = "borrar.htm")
-    public ModelAndView Borrar(HttpServletRequest request){
-        codigo =Integer.parseInt(request.getParameter("codigo"));//Codigo = Codigo !!
-        String sql = "Delete from alianzas where alianza_id = "+codigo;
-        this.jdbcTemplate.update(sql);
-        return new ModelAndView("redirect:/index.htm");
+        String sql = "INSERT INTO registros (candidatura_id, partido_id, no_votos, casilla_id) values (?,?,?,(SELECT MAX(usuario_id) FROM usuarios))";
+        this.jdbcTemplate.update(sql,v.getCan(),v.getPar(),v.getVot());
+        return new ModelAndView("redirect:/votar.htm");
     }
 }

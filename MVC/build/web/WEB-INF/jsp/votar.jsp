@@ -15,65 +15,40 @@
                 </div>
                 <div class ="card-body">
                     <form method="POST">
-                        <label>Presidente Municipal de Tonalá</label>
-                        <select name="Nomp" class="form-control">
-                            <option value="NULL" selected>Seleccionar</Option>
-                            <option value="PAN">PAN</option>
-                            <option value="PRD">PRD</option>
-                            <option value="PRI">PRI</option>
-                            <option value="PVEM">VERDE ECOLÓGISTA</option>
-                            <option value="PT">PT</option>
-                            <option value="MC">MOVIMIENTO CIUDADANO</option>
-                            <option value="MORENA">MORENA</option>
-                            <option value="PES">PES</option>
-                            <option value="RSP">REDES SOCIALES PROGRESISTAS (RSP)</option>
-                            <option value="FxM">FUERZA MÉXICO</option>
-                            <option value="HAGAMOS">HAGAMOS</option>
-                            <option value="SOMOS">SOMOS</option>
-                            <option value="FUTURO">FUTURO</option>
-                            <option value="INDEPENDIENTE">INDEPENDIENTE</option>
+                        
+                        <label>Candidatura</label>
+                        <select name = "can" class="form-control">
+                            <option value = "1">Presidente Municipal de Tonalá</option>
+                            <option value = "3">Diputado Local</option>
+                            <option value = "2">Diputado Federal</option>
                         </select><BR>
                         
-                        <label>Diputado Federal</label>
-                        <select name="Nomdf" class="form-control">
-                            <option value="NULL" selected>Seleccionar</Option>
-                            <option value="PAN">PAN</option>
-                            <option value="PRD">PRD</option>
-                            <option value="PRI">PRI</option>
-                            <option value="PVEM">VERDE ECOLÓGISTA</option>
-                            <option value="PT">PT</option>
-                            <option value="MC">MOVIMIENTO CIUDADANO</option>
-                            <option value="MORENA">MORENA</option>
-                            <option value="PES">PES</option>
-                            <option value="RSP">REDES SOCIALES PROGRESISTAS (RSP)</option>
-                            <option value="FxM">FUERZA MÉXICO</option>
-                            <option value="HAGAMOS">HAGAMOS</option>
-                            <option value="SOMOS">SOMOS</option>
-                            <option value="FUTURO">FUTURO</option>
-                            <option value="INDEPENDIENTE">INDEPENDIENTE</option>
+                        <label>Partido Político</label>
+                        <select name="par" class="form-control">
+                            <option value="15" selected>Seleccionar</Option>
+                            <option value="5">PAN</option>
+                            <option value="6">PRD</option>
+                            <option value="4">PRI</option>
+                            <option value="3">VERDE ECOLÓGISTA</option>
+                            <option value="2">PT</option>
+                            <option value="8">MOVIMIENTO CIUDADANO</option>
+                            <option value="1">MORENA</option>
+                            <option value="10">PES</option>
+                            <option value="7">REDES SOCIALES PROGRESISTAS (RSP)</option>
+                            <option value="9">FUERZA MÉXICO</option>
+                            <option value="12">HAGAMOS</option>
+                            <option value="13">SOMOS</option>
+                            <option value="11">FUTURO</option>
+                            <option value="14">INDEPENDIENTE</option>
+                            <option value="16">Juntos Haremos Historia</option>
+                            <option value="17">Va Por México</option>
                         </select><BR>
                         
-                        <label>Diputado Local</label>
-                        <select name="Nomdl" class="form-control">
-                            <option value="NULL" selected>Seleccionar</Option>
-                            <option value="PAN">PAN</option>
-                            <option value="PRD">PRD</option>
-                            <option value="PRI">PRI</option>
-                            <option value="PVEM">VERDE ECOLÓGISTA</option>
-                            <option value="PT">PT</option>
-                            <option value="MC">MOVIMIENTO CIUDADANO</option>
-                            <option value="MORENA">MORENA</option>
-                            <option value="PES">PES</option>
-                            <option value="RSP">REDES SOCIALES PROGRESISTAS (RSP)</option>
-                            <option value="FxM">FUERZA MÉXICO</option>
-                            <option value="HAGAMOS">HAGAMOS</option>
-                            <option value="SOMOS">SOMOS</option>
-                            <option value="FUTURO">FUTURO</option>
-                            <option value="INDEPENDIENTE">INDEPENDIENTE</option>
-                        </select><BR>
+                        <label>Votos</label>
+                        <input type="text" name="vot" class="form-control"><BR>
                         
-                        <input type="submit" value="Registrar Voto" class="btn btn-success">
-                        <a href="index.htm">Regresar</a>
+                        <input type="submit" value="Registrar" class="btn btn-success">
+
                     </form>
                 </div>
             </div>

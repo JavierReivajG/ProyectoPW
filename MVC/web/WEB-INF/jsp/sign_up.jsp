@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="./css/sign_up.css">
-    <script src="/src/js/Sing_up.js"></script>
+    <!--<link rel="stylesheet" href="./css/sign_up.css">
+    <script src="/src/js/Sing_up.js"></script>-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sing in</title>
+    <title>Sign up</title>
 </head>
 <body class="body-signing">
     <main class="main-container-sign_in">
@@ -17,27 +17,357 @@
                 <li class="iner-singup"><p>Crear Cuenta</p></li>
                 <li class="slidery">
                     <div class="container-slidery">
-                        <form action="" class="form-container">
-                            <input class='logininput' name="Apellido" autocomplete="family-name" placeholder="Apellido (S)" type="text">
-                            <input class='logininput' name="Nombre" autocomplete="name" placeholder="Nombre (S)" type="text">
+                        <form method="POST" class="form-container">
+                            <input class='logininput' name="Ape" autocomplete="family-name" placeholder="Apellido (S)" type="text">
+                            <input class='logininput' name="Nom" autocomplete="name" placeholder="Nombre (S)" type="text">
                             <input class='logininput' name="Email" autocomplete="email" placeholder="Correo" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="La direccion de correo electronica no es valida" required>
-                            <input class='logininput' name="Contraseña" autocomplete="current-password" placeholder="contraseña" type="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required>
-                            <input class='logininput' name="No_telefono" autocomplete="tel-local" placeholder="Numero Telefonico" type="number">          
+                            <input class='logininput' name="Pass" autocomplete="current-password" placeholder="contraseña" type="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required>
+                            <input class='logininput' name="Tel" autocomplete="tel-local" placeholder="Numero Telefonico" type="number">          
                             <p class="iner-botons">Direcciones</p>
-                            <input class='logininput' name="Calle" autocomplete="address-line3" placeholder="Calle" type="number">
-                            <input class='logininput' name="Colonia" autocomplete="street-address" placeholder="Colonia" type="number">
-                            <input class='logininput' name="Numero" autocomplete="address-line1" placeholder="Numero interior y exterior" type="number">
-                            <input class='logininput' name="Municipio" autocomplete="cc-additional-name" placeholder="Municipio" type="number">
-                            <input class='logininput' name="Cp" autocomplete="postal-code" placeholder="Codigo Postal" type="number">
-                            <input class='logininput' name="Red_social" placeholder="Red Social" type="text">
+                            <input class='logininput' name="Calle" autocomplete="address-line3" placeholder="Calle" type="text">
+                            <input class='logininput' name="Col" autocomplete="street-address" placeholder="Colonia" type="text">
+                            <input class='logininput' name="Num" autocomplete="address-line1" placeholder="Numero interior y exterior" type="text">
+                            <input class='logininput' name="Mun" autocomplete="cc-additional-name" placeholder="Municipio" type="text">
+                            <input class='logininput' name="Cp" autocomplete="postal-code" placeholder="Codigo Postal" type="text">
+                            <input class='logininput' name="Red" placeholder="Red Social" type="text">
                             <input class="iner-sign-button" type="submit" value="Vamos!">
                         </form>
                     </div>
                 </li>
-                <li class="iner-create-acount"><span>Ya tienes cuenta?</span> <a href="./sign_in.html"> Inicia Sesion</a></li>
+                <li class="iner-create-acount"><span>Ya tienes cuenta? </span> <a href="index.htm"> Inicia Sesion</a></li>
             </ul>
         </section>
     </main>
 </body>
+<style>
+    :root {
+    --fondo: rgb(51,56,90);
+    --contenedores: rgb(32,36,66);
+    --botones: rgb(65,205,125);
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    li {
+        list-style: none;
+    }
+    
+    .body-signing {
+        background-color: var(--fondo);
+    }
+    
+    
+    .main-container-sign_in {
+        display: flex;
+        justify-content: center;
+        margin-top: 5vh;
+        margin-bottom: 5h;
+    }
+    
+    
+    .section-container {
+        background-color: var(--contenedores);
+        border-radius: 25px;
+        width: 70vw;
+        min-width: 350px;
+        height: 70vh;
+        min-height: 450px;
+        
+    }
+    
+    .container-iner {
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .iner-singup  {
+        min-width: 260px;
+        color: white;
+        font-size: 2rem;
+        width: 60vw;
+        text-align: center;
+        font-weight: 600;
+        text-decoration: none;
+        list-style: none;
+    }
+    
+    .form-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .logininput {
+        border: none;
+        outline: none;
+        background-color: var(--fondo);
+        padding: 15px;
+        border-radius: 30px;
+        width: 20vw;
+        font-size: 1rem;
+        min-width: 260px;
+        margin-bottom: 2.5vh;
+        color: var(--botones);
+    }
+    
+   
+    
+    .iner-botons {
+        color: rgba(255, 255, 255, 0.452);
+        font-size: 2.5rem;
+        font-weight: 500;
+        width: 90%;
+    }
+    
+
+    
+    .iner-botons .recordar {
+        float: left;
+    }
+
+    .iner-botons .recordar:hover {
+        color: var(--botones);
+    }
+
+    .iner-botons a {
+        float: right;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.452);
+        padding-left: 5px;
+    }
+
+    .iner-botons a:hover {
+        color: var(--botones);
+    }
+    
+    .iner-sign-button{
+        margin-top: 3vh;
+        background-color: var(--botones);
+        border: none;
+        font-size: 2rem;
+        font-weight: 600;
+        width: 30vw;
+        border-radius: 15px;
+        padding: 8px;
+        color: rgba(0, 0, 0, 0.712);
+        min-width: 260px;
+        cursor: pointer;
+    }
+
+    .iner-sign-button:hover {
+        color: rgb(255, 255, 255);
+        box-shadow: 3px 3px 2px 2px rgba(17, 17, 17, 0.911);
+    }
+   
+    .iner-create-acount{
+        align-items: center;
+        margin-top: 2%;
+    }
+    
+    .iner-create-acount span {
+        color: rgba(255, 255, 255, 0.452);
+        font-size: 2rem;
+        width: 75%; 
+    }
+    
+    .iner-create-acount a {
+        color: rgba(255, 255, 255, 0.452);
+        font-size: 3rem;
+        width: 75%; 
+        margin-left: 10px;
+        color: var(--botones);
+        text-decoration: none;
+    }
+    
+    
+    .slidery {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+        height: 45vh;
+        min-height: 200px;
+        overflow-y: scroll;
+        scroll-snap-type: y proximity;
+    }
+    
+    
+    .slidery .container-slidery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    li {
+        list-style: none;
+    }
+    
+    .body-signing {
+        background-color: var(--fondo);
+    }
+    
+    
+    .main-container-sign_in {
+        display: flex;
+        justify-content: center;
+        margin-top: 5vh;
+        margin-bottom: 5h;
+    }
+    
+    
+    .section-container {
+        background-color: var(--contenedores);
+        border-radius: 25px;
+        width: 70vw;
+        min-width: 350px;
+        height: 70vh;
+        min-height: 450px;
+        
+    }
+    
+    .container-iner {
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .iner-singup  {
+        min-width: 260px;
+        color: white;
+        font-size: 5rem;
+        width: 60vw;
+        text-align: center;
+        font-weight: 600;
+        text-decoration: none;
+        list-style: none;
+    }
+    
+    .form-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .logininput {
+        border: none;
+        outline: none;
+        background-color: var(--fondo);
+        padding: 20px;
+        border-radius: 30px;
+        width: 30vw;
+        font-size: 2rem;
+        min-width: 260px;
+        margin-bottom: 2.5vh;
+        color: var(--botones);
+    }
+    
+   
+    
+    .iner-botons {
+        color: rgba(255, 255, 255, 0.452);
+        font-size: 2.5rem;
+        font-weight: 500;
+        width: 90%;
+    }
+    
+
+    
+    .iner-botons .recordar {
+        float: left;
+    }
+
+    .iner-botons .recordar:hover {
+        color: var(--botones);
+    }
+
+    .iner-botons a {
+        float: right;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.452);
+        padding-left: 5px;
+    }
+
+    .iner-botons a:hover {
+        color: var(--botones);
+    }
+    
+    .iner-sign-button{
+        margin-top: 3vh;
+        background-color: var(--botones);
+        border: none;
+        font-size: 4rem;
+        font-weight: 600;
+        width: 30vw;
+        border-radius: 15px;
+        padding: 8px;
+        color: rgba(0, 0, 0, 0.712);
+        min-width: 260px;
+        cursor: pointer;
+    }
+
+    .iner-sign-button:hover {
+        color: rgb(255, 255, 255);
+        box-shadow: 3px 3px 2px 2px rgba(17, 17, 17, 0.911);
+    }
+   
+    .iner-create-acount{
+        align-items: center;
+        margin-top: 2%;
+    }
+    
+    .iner-create-acount span {
+        color: rgba(255, 255, 255, 0.452);
+        font-size: 3rem;
+        width: 75%; 
+    }
+    
+    .iner-create-acount a {
+        color: rgba(255, 255, 255, 0.452);
+        font-size: 3rem;
+        width: 75%; 
+        margin-left: 10px;
+        color: var(--botones);
+        text-decoration: none;
+    }
+    
+    
+    .slidery {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+        height: 45vh;
+        min-height: 200px;
+        overflow-y: scroll;
+        scroll-snap-type: y proximity;
+    }
+    
+    
+    .slidery .container-slidery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
 </html>
+
 

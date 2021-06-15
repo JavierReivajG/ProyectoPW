@@ -15,6 +15,9 @@
                 </div>
                 <div class ="card-body">
                     <form method="POST">
+
+                        <label>Numero de Casilla</label><BR>
+                        <input type="text" name="id" class="form-control">
                         <label>Casilla</label>
                         <!--<input type="text" name="cas" class="form-control">-->
                         <select name="cas" class="form-control">
@@ -25,11 +28,7 @@
                             <option value="Otra">Otra</option>
                         </select><BR>
                         <label>Seccional</label>
-                        <input type="text" name="sec" class="form-control">
-                        <label>Distrito</label>
-                        <input type="text" name="dist" class="form-control">
-                        <label>Entidad</label>
-                        <input type="text" name="ent" class="form-control"><BR>
+                        <input type="text" name="sec" class="form-control"><BR>
                         <input type="submit" value="Registrar" class="btn btn-success">
                         <a href="index.htm">Regresar</a>
                     </form>
