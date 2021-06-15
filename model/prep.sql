@@ -51,7 +51,8 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `prep`.`casillas` (
   `casilla_id` INT NOT NULL,
-  `seccion` INT NOT NULL,
+  `numero_casilla` INT,
+  `seccion` INT,
   `tipo_casilla` VARCHAR(45),
   PRIMARY KEY (`casilla_id`))
 ENGINE = InnoDB
