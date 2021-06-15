@@ -54,7 +54,7 @@ FROM registros r
 JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id
 JOIN partidos p ON r.partido_id = p.partido_id
 JOIN casillas c ON c.casilla_id = r.casilla_id
-WHERE p.alianza IS NULL and cn.puesto = 'Diputado Federal'
+WHERE cn.puesto = 'Diputado Federal'
 GROUP BY r.casilla_id,nombre,puesto
 ORDER BY puesto,Total_Votos DESC;
 
@@ -73,7 +73,7 @@ FROM registros r
 JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id
 JOIN partidos p ON r.partido_id = p.partido_id
 JOIN casillas c ON c.casilla_id = r.casilla_id
-WHERE p.alianza IS NULL and cn.puesto = 'Diputado Local'
+WHERE cn.puesto = 'Diputado Local'
 GROUP BY r.casilla_id,nombre,puesto
 ORDER BY puesto,Total_Votos DESC;
 
@@ -93,6 +93,6 @@ FROM registros r
 JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id
 JOIN partidos p ON r.partido_id = p.partido_id
 JOIN casillas c ON c.casilla_id = r.casilla_id
-WHERE p.alianza IS NULL and cn.puesto = 'Presidente Municipal'
+WHERE cn.puesto = 'Presidente Municipal'
 GROUP BY r.casilla_id,nombre,puesto
 ORDER BY puesto,Total_Votos DESC;
