@@ -19,16 +19,78 @@ public class Controlador {
     JdbcTemplate jdbcTemplate = new JdbcTemplate(con.Conectar());
     ModelAndView mav=new ModelAndView();
     int codigo;
-    List datos;
+    List datos, datos1, datos2;
+    List datos3, datos4, datos5;
     
     @RequestMapping("index.htm")
     public ModelAndView Listar(){
-        //String sql="Select * from alianzas";
-        //datos=this.jdbcTemplate.queryForList(sql);
-        //mav.addObject("lista",datos);
+        String sql="SELECT r.casilla_id,puesto,alianza AS \"Alianza_o_Partido\", SUM(no_votos) Total_Votos\n" +
+"FROM registros r\n" +
+"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
+"JOIN partidos p ON r.partido_id = p.partido_id\n" +
+"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
+"WHERE alianza IS NOT NULL and cn.puesto = 'Diputado Federal'\n" +
+"GROUP BY r.casilla_id,alianza,puesto\n" +
+"UNION\n" +
+"SELECT r.casilla_id,puesto,nombre AS \"Alianza_o_Partido\", SUM(no_votos) as Total_Votos\n" +
+"FROM registros r\n" +
+"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
+"JOIN partidos p ON r.partido_id = p.partido_id\n" +
+"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
+"WHERE cn.puesto = 'Diputado Federal'\n" +
+"GROUP BY r.casilla_id,nombre,puesto\n" +
+"ORDER BY puesto,Total_Votos DESC";
+        datos=this.jdbcTemplate.queryForList(sql);
+        mav.addObject("lista",datos);
+        String sql2 = "SELECT r.casilla_id,puesto,alianza AS \"Alianza_o_Partido\", SUM(no_votos) Total_Votos\n" +
+"FROM registros r\n" +
+"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
+"JOIN partidos p ON r.partido_id = p.partido_id\n" +
+"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
+"WHERE alianza IS NOT NULL and cn.puesto = 'Diputado Local'\n" +
+"GROUP BY r.casilla_id,alianza,puesto\n" +
+"UNION\n" +
+"SELECT r.casilla_id,puesto,nombre AS \"Alianza_o_Partido\", SUM(no_votos) as Total_Votos\n" +
+"FROM registros r\n" +
+"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
+"JOIN partidos p ON r.partido_id = p.partido_id\n" +
+"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
+"WHERE cn.puesto = 'Diputado Local'\n" +
+"GROUP BY r.casilla_id,nombre,puesto\n" +
+"ORDER BY puesto,Total_Votos DESC;";
+        datos1=this.jdbcTemplate.queryForList(sql2);
+        mav.addObject("lista1",datos1);
+        String sql3 = "SELECT r.casilla_id,puesto,alianza AS \"Alianza_o_Partido\", SUM(no_votos) Total_Votos\n" +
+"FROM registros r\n" +
+"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
+"JOIN partidos p ON r.partido_id = p.partido_id\n" +
+"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
+"WHERE alianza IS NOT NULL and cn.puesto = 'Presidente Municipal'\n" +
+"GROUP BY r.casilla_id,alianza,puesto\n" +
+"UNION\n" +
+"SELECT r.casilla_id,puesto,nombre AS \"Alianza_o_Partido\", SUM(no_votos) as Total_Votos\n" +
+"FROM registros r\n" +
+"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
+"JOIN partidos p ON r.partido_id = p.partido_id\n" +
+"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
+"WHERE cn.puesto = 'Presidente Municipal'\n" +
+"GROUP BY r.casilla_id,nombre,puesto\n" +
+"ORDER BY puesto,Total_Votos DESC;";
+        datos2=this.jdbcTemplate.queryForList(sql3);
+        mav.addObject("lista2",datos2);
         mav.setViewName("index");
         return mav;
     }
+    
+    @RequestMapping("sign_in.htm")
+    public ModelAndView Sign_in(){
+        //String sql="Select * from registros";
+        //datos=this.jdbcTemplate.queryForList(sql);
+        //mav.addObject("lista",datos);
+        mav.setViewName("sign_in");
+        return mav;
+    }
+    
     
     @RequestMapping(value = "sign_up.htm", method = RequestMethod.GET)
     public ModelAndView Sign_up(){
@@ -56,7 +118,7 @@ public class Controlador {
     }
     @RequestMapping(value = "registrar.htm", method = RequestMethod.POST)
     public ModelAndView Registrar(Registro r){
-        String sql = "Insert into casillas (casilla_id, tipo_casilla, seccion) values(?,?,?)";
+        String sql = "Insert into casillas (numero_casilla, tipo_casilla, seccion) values(?,?,?)";
         this.jdbcTemplate.update(sql, r.getId(), r.getCas(),r.getSec());
         return new ModelAndView("redirect:/votar.htm");
     }
@@ -69,8 +131,68 @@ public class Controlador {
     }
     @RequestMapping(value = "votar.htm", method = RequestMethod.POST)
     public ModelAndView Votar(Voto v){
-        String sql = "INSERT INTO registros (candidatura_id, partido_id, no_votos, casilla_id) values (?,?,?,(SELECT MAX(usuario_id) FROM usuarios))";
+        String sql = "INSERT INTO registros (candidatura_id, partido_id, no_votos, casilla_id) values (?,?,?,(SELECT MAX(casilla_id) FROM casillas))";
         this.jdbcTemplate.update(sql,v.getCan(),v.getPar(),v.getVot());
         return new ModelAndView("redirect:/votar.htm");
+    }
+    
+    @RequestMapping("conteo.htm")
+    public ModelAndView Contar(){
+        String sql="SELECT r.casilla_id,puesto,alianza AS \"Alianza_o_Partido\", SUM(no_votos) Total_Votos\n" +
+"FROM registros r\n" +
+"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
+"JOIN partidos p ON r.partido_id = p.partido_id\n" +
+"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
+"WHERE alianza IS NOT NULL and cn.puesto = 'Diputado Federal'\n" +
+"GROUP BY r.casilla_id,alianza,puesto\n" +
+"UNION\n" +
+"SELECT r.casilla_id,puesto,nombre AS \"Alianza_o_Partido\", SUM(no_votos) as Total_Votos\n" +
+"FROM registros r\n" +
+"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
+"JOIN partidos p ON r.partido_id = p.partido_id\n" +
+"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
+"WHERE cn.puesto = 'Diputado Federal'\n" +
+"GROUP BY r.casilla_id,nombre,puesto\n" +
+"ORDER BY puesto,Total_Votos DESC";
+        datos3=this.jdbcTemplate.queryForList(sql);
+        mav.addObject("cont",datos3);
+        String sql2 = "SELECT r.casilla_id,puesto,alianza AS \"Alianza_o_Partido\", SUM(no_votos) Total_Votos\n" +
+"FROM registros r\n" +
+"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
+"JOIN partidos p ON r.partido_id = p.partido_id\n" +
+"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
+"WHERE alianza IS NOT NULL and cn.puesto = 'Diputado Local'\n" +
+"GROUP BY r.casilla_id,alianza,puesto\n" +
+"UNION\n" +
+"SELECT r.casilla_id,puesto,nombre AS \"Alianza_o_Partido\", SUM(no_votos) as Total_Votos\n" +
+"FROM registros r\n" +
+"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
+"JOIN partidos p ON r.partido_id = p.partido_id\n" +
+"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
+"WHERE cn.puesto = 'Diputado Local'\n" +
+"GROUP BY r.casilla_id,nombre,puesto\n" +
+"ORDER BY puesto,Total_Votos DESC;";
+        datos1=this.jdbcTemplate.queryForList(sql2);
+        mav.addObject("cont1",datos4);
+        String sql3 = "SELECT r.casilla_id,puesto,alianza AS \"Alianza_o_Partido\", SUM(no_votos) Total_Votos\n" +
+"FROM registros r\n" +
+"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
+"JOIN partidos p ON r.partido_id = p.partido_id\n" +
+"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
+"WHERE alianza IS NOT NULL and cn.puesto = 'Presidente Municipal'\n" +
+"GROUP BY r.casilla_id,alianza,puesto\n" +
+"UNION\n" +
+"SELECT r.casilla_id,puesto,nombre AS \"Alianza_o_Partido\", SUM(no_votos) as Total_Votos\n" +
+"FROM registros r\n" +
+"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
+"JOIN partidos p ON r.partido_id = p.partido_id\n" +
+"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
+"WHERE cn.puesto = 'Presidente Municipal'\n" +
+"GROUP BY r.casilla_id,nombre,puesto\n" +
+"ORDER BY puesto,Total_Votos DESC;";
+        datos2=this.jdbcTemplate.queryForList(sql3);
+        mav.addObject("cont2",datos5);
+        mav.setViewName("conteo");
+        return mav;
     }
 }

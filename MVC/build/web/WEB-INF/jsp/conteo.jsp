@@ -1,12 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <title>PREP</title>
+        <title>Conteo</title>
     </head>
 
     <body>
@@ -28,12 +27,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="dato" items = "${lista}">
+                            <c:forEach var="dato3" items = "${cont}">
                             <tr>
-                                <td>${dato.casilla_id}</td>
-                                <td>${dato.puesto}</td>
-                                <td>${dato.alianza_o_partido}</td>
-                                <td>${dato.total_votos}</td>
+                                <td>${dato3.casilla_id}</td>
+                                <td>${dato3.puesto}</td>
+                                <td>${dato3.alianza_o_partido}</td>
+                                <td>${dato3.total_votos}</td>
                             </tr>
                             </c:forEach>
                         </tbody>
@@ -50,12 +49,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="dato1" items = "${lista1}">
+                            <c:forEach var="dato4" items = "${cont1}">
                             <tr>
-                                <td>${dato1.casilla_id}</td>
-                                <td>${dato1.puesto}</td>
-                                <td>${dato1.alianza_o_partido}</td>
-                                <td>${dato1.total_votos}</td>
+                                <td>${dato4.casilla_id}</td>
+                                <td>${dato4.puesto}</td>
+                                <td>${dato4.alianza_o_partido}</td>
+                                <td>${dato4.total_votos}</td>
                             </tr>
                             </c:forEach>
                         </tbody>
@@ -72,21 +71,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="dato2" items = "${lista2}">
+                            <c:forEach var="dato5" items = "${cont2}">
                             <tr>
-                                <td>${dato2.casilla_id}</td>
-                                <td>${dato2.puesto}</td>
-                                <td>${dato2.alianza_o_partido}</td>
-                                <td>${dato2.total_votos}</td>
+                                <td>${dato5.casilla_id}</td>
+                                <td>${dato5.puesto}</td>
+                                <td>${dato5.alianza_o_partido}</td>
+                                <td>${dato5.total_votos}</td>
                             </tr>
                             </c:forEach>
                         </tbody>
                     </table>
                     <hr>
-                    
                 </div>
                 <div class="card-header bg-info text-white">
-                    <a class = "btn btn-light" href = "sign_in.htm">Registrar resultados</a>
+                    <a class = "btn btn-light" href = "votar.htm">Regresar</a>
                 </div>
             </div>
         </div>

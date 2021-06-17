@@ -41,7 +41,7 @@ ORDER BY puesto,Total_Votos DESC;
 
 -- CONSULTA VOTOS DE LAS ALIANZAS Y PARTIDOS A DIPUTACIÓN FEDEREAL
 
-SELECT r.casilla_id,puesto,alianza AS "Alianza o Partido", SUM(no_votos) Total_Votos
+SELECT r.casilla_id,puesto,alianza AS "Alianza_o_Partido", SUM(no_votos) Total_Votos
 FROM registros r
 JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id
 JOIN partidos p ON r.partido_id = p.partido_id
@@ -49,7 +49,7 @@ JOIN casillas c ON c.casilla_id = r.casilla_id
 WHERE alianza IS NOT NULL and cn.puesto = 'Diputado Federal'
 GROUP BY r.casilla_id,alianza,puesto
 UNION
-SELECT r.casilla_id,puesto,nombre AS "Alianza o Partido", SUM(no_votos) as Total_Votos
+SELECT r.casilla_id,puesto,nombre AS "Alianza_o_Partido", SUM(no_votos) as Total_Votos
 FROM registros r
 JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id
 JOIN partidos p ON r.partido_id = p.partido_id

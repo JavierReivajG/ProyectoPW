@@ -5,13 +5,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <title>Votar</title>
+        <title>Registrar Resultados</title>
     </head>
     <body>
           <div class="container mt-4 col-lg-4">
             <div class = "card border-info ">
                 <div class="card-header bg-info">
-                    <H4>Proceso Electoral Federal 2021</h4>
+                    <H4>Programa de Resultados Electorales Preliminares 2021</h4>
                 </div>
                 <div class ="card-body">
                     <form method="POST">
@@ -48,6 +48,7 @@
                         <input type="text" name="vot" class="form-control"><BR>
                         
                         <input type="submit" value="Registrar" class="btn btn-success">
+                        <a href="conteo.htm">Consultar Conteo de Votos</a>
 
                     </form>
                 </div>
