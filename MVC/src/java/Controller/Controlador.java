@@ -20,7 +20,7 @@ public class Controlador {
     ModelAndView mav=new ModelAndView();
     int codigo;
     public static String Email, Pass;
-    List datos, datos1, datos2;
+    List datos, datos1, datos2, usuarios;
     
     //ResultSet rs = null;
     
@@ -108,7 +108,6 @@ public class Controlador {
         return new ModelAndView("redirect:/sign_in.htm");
         }
     }
-    
     
     @RequestMapping(value = "sign_up.htm", method = RequestMethod.GET)
     public ModelAndView Sign_up(){
@@ -213,4 +212,30 @@ public class Controlador {
         mav.setViewName("conteo");
         return mav;
     }
+    
+    @RequestMapping("validar.htm")
+    public ModelAndView Validar(){
+        String sql="Select usuario_id, nombre, email, contraseña, tipo_usuario from usuarios";
+        usuarios=this.jdbcTemplate.queryForList(sql);
+        mav.addObject("contenido",usuarios);
+        mav.setViewName("validar");
+        return mav;
+    }
+
+    @RequestMapping(value = "autorizar.htm")
+    public ModelAndView Autorizar(HttpServletRequest request){
+        codigo =Integer.parseInt(request.getParameter("codigo"));
+        String sql = "UPDATE usuarios SET tipo_usuario = 'Autorizado' where usuario_id = "+codigo;
+        this.jdbcTemplate.update(sql);
+        return new ModelAndView("redirect:/validar.htm");
+    }
+    
+    @RequestMapping(value = "denegar.htm")
+    public ModelAndView Denegar(HttpServletRequest request){
+        codigo =Integer.parseInt(request.getParameter("codigo"));
+        String sql = "UPDATE usuarios SET tipo_usuario = 'No_autorizado' where usuario_id = "+codigo;
+        this.jdbcTemplate.update(sql);
+        return new ModelAndView("redirect:/validar.htm");
+    }
+    
 }

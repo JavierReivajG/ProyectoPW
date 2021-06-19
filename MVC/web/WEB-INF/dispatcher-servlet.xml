@@ -25,6 +25,9 @@
                 <prop key="votar.htm">controlador</prop>
                 <prop key="sign_in.htm">controlador</prop>
                 <prop key="conteo.htm">controlador</prop>
+                <prop key="validar.htm">controlador</prop>
+                <prop key="autorizar.htm">controlador</prop>
+                <prop key="denegar.htm">controlador</prop>
                 
             </props>
         </property>
