@@ -7,9 +7,8 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 public class Conexion {
     public DriverManagerDataSource Conectar (){
-        //Usuario u = new Usuario();
-        String User = Controlador.Email;//u.getEmail();
-        String Pass = Controlador.Pass;//u.getPass();
+        String User = "root";//Controlador.Email;
+        String Pass = "3366";//Controlador.Pass;
         
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
