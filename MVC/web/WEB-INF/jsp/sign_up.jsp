@@ -34,7 +34,7 @@
                         </form>
                     </div>
                 </li>
-                <li class="iner-create-acount"><span>Ya tienes cuenta? </span> <a href="index.htm"> Inicia Sesion</a></li>
+                <li class="iner-create-acount"><span>Ya tienes cuenta? </span> <a href="sign_in.htm"> Inicia Sesion</a></li>
             </ul>
         </section>
     </main>

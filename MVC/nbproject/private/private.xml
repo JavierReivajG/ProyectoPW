@@ -3,11 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/jafg8/Desktop/Repos/ProyectoPW/MVC/web/WEB-INF/jsp/index.jsp</file>
             <file>file:/C:/Users/jafg8/Desktop/Repos/ProyectoPW/MVC/web/WEB-INF/jsp/registrar.jsp</file>
             <file>file:/C:/Users/jafg8/Desktop/Repos/ProyectoPW/MVC/web/WEB-INF/jsp/sign_in.jsp</file>
             <file>file:/C:/Users/jafg8/Desktop/Repos/ProyectoPW/MVC/web/WEB-INF/jsp/conteo.jsp</file>
             <file>file:/C:/Users/jafg8/Desktop/Repos/ProyectoPW/MVC/web/WEB-INF/jsp/sign_up.jsp</file>
+=======
+            <file>file:/C:/Users/angel/Desktop/Prog.%20Web/MVC/web/WEB-INF/dispatcher-servlet.xml</file>
+            <file>file:/C:/Users/angel/Desktop/Prog.%20Web/MVC/web/WEB-INF/jsp/sign_in.jsp</file>
+            <file>file:/C:/Users/angel/Desktop/Prog.%20Web/MVC/src/java/Config/Conexion.java</file>
+            <file>file:/C:/Users/angel/Desktop/Prog.%20Web/MVC/web/WEB-INF/jsp/index.jsp</file>
+            <file>file:/C:/Users/angel/Desktop/Prog.%20Web/MVC/src/java/Entidad/Usuario.java</file>
+            <file>file:/C:/Users/angel/Desktop/Prog.%20Web/MVC/src/java/Controller/Controlador.java</file>
+            <file>file:/C:/Users/angel/Desktop/Prog.%20Web/MVC/web/WEB-INF/jsp/conteo.jsp</file>
+            <file>file:/C:/Users/angel/Desktop/Prog.%20Web/MVC/web/WEB-INF/jsp/sign_up.jsp</file>
+>>>>>>> 83b6f638cf20c6e7b0e2cd7ab7bd7504f5d165fd
         </group>
     </open-files>
 </project-private>

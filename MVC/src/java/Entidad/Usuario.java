@@ -5,8 +5,8 @@ public class Usuario {
  
     String Nom;
     String Ape;
-    String Email = "root";
-    String Pass = "3366";
+    String Email;
+    String Pass;
     String Tel;
     String Red;
     

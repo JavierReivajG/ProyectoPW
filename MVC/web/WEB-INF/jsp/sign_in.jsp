@@ -18,13 +18,13 @@
                 <li class="iner-email">
                     <form class="container-iner"  action="" method = "POST">
                         <span class="invalid" id="correo-comprobacion"></span>
-                        <input autocomplete="username" class="logininput" placeholder="correo@ejemplo.com" type="text" name="username" id="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="La direccion de correo electronica no es valida" required>
+                        <input autocomplete="username" class="logininput" placeholder="correo@ejemplo.com" type="text" name="email" id="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="La direccion de correo electronica no es valida" required>
                         <span class="password-icon"></span>
-                        <input autocomplete="current-password" class="logininput" placeholder="contraseña" type="password" name="password" id="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required>
+                        <input autocomplete="current-password" class="logininput" placeholder="contraseña" type="password" name="pass" id="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required>
                         <li class="iner-botons">
                             <a class="recordar" href="">Recordar contraseña</a><a class="" href="">Terminos y Condiciones</a>
                         </li>
-                        <input class="iner-sign-button" type="submit" value="Vamos!">
+                        <input class="iner-sign-button" type="submit" href="registrar.htm" value="Vamos!">
                     </form>
                 </li>
                 <li class="iner-lineal"><p>Otras</p></li>
