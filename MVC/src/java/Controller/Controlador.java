@@ -6,6 +6,16 @@ import Entidad.Registro;
 import Entidad.Voto;
 import Entidad.Usuario;
 import java.util.List;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -100,7 +110,6 @@ public class Controlador {
         Pass = us.getPass();
         String sql = "Select tipo_usuario from usuarios where email = '"+Email+"' AND contraseña = '"+Pass+"'";
         String tipUs = (String) jdbcTemplate.queryForObject(sql, new Object[] {}, String.class);
-        System.out.println("Usuario: "+tipUs);
         if (tipUs.equals("Autorizado")){
         return new ModelAndView("redirect:/registrar.htm");
         }
@@ -236,6 +245,56 @@ public class Controlador {
         String sql = "UPDATE usuarios SET tipo_usuario = 'No_autorizado' where usuario_id = "+codigo;
         this.jdbcTemplate.update(sql);
         return new ModelAndView("redirect:/validar.htm");
+    }
+    
+    @RequestMapping(value = "recuperar.htm", method = RequestMethod.GET)
+    public ModelAndView Recuperar(){
+        mav.addObject(new Usuario());
+        mav.setViewName("recuperar");
+        return mav;
+    }
+    
+    @RequestMapping (value = "recuperar.htm", method = RequestMethod.POST)
+    public ModelAndView Recuperar(Usuario recUs){
+        
+            String correo = recUs.getEmail();
+            String sql = "Select contraseña from usuarios where email = '"+correo+"'";
+            String tipUs = (String) jdbcTemplate.queryForObject(sql, new Object[] {}, String.class);
+            //Aquí va todo el menjurge
+            
+            try {
+            Properties props = new Properties();
+            props.setProperty("mail.smtp.host", "smtp.gmail.com");
+            props.setProperty("mail.smtp.starttls.enable", "true");
+            props.setProperty("mail.smtp.port", "587");
+            props.setProperty("mail.smtp.auth", "true");
+            
+            Session session = Session.getDefaultInstance(props);
+            
+            String correoRemitente = "prep.recovery@gmail.com";
+            String passwordRemitente = "prep1234";
+            String asunto = "Recuperar Contraseña PREP 2021";
+            String mensaje = "La contraseña correspondienta a la cuenta " +correo+ " es: " + tipUs;
+            System.out.println(mensaje);
+            
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(correoRemitente));
+            
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(correo));
+            message.setSubject(asunto);
+            message.setText(mensaje);
+            
+            Transport t = session.getTransport("smtp");
+            t.connect(correoRemitente, passwordRemitente);
+            t.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
+            t.close();
+        } catch (AddressException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MessagingException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return new ModelAndView("redirect:/sign_in.htm");
     }
     
 }

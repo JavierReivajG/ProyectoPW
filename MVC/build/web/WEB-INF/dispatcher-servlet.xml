@@ -28,6 +28,7 @@
                 <prop key="validar.htm">controlador</prop>
                 <prop key="autorizar.htm">controlador</prop>
                 <prop key="denegar.htm">controlador</prop>
+                <prop key="recuperar.htm">controlador</prop>
                 
             </props>
         </property>
