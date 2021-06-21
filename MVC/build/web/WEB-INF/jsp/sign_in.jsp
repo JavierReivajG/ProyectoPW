@@ -21,7 +21,11 @@
                         <span class="password-icon"></span>
                         <input autocomplete="current-password" class="logininput" placeholder="contraseña" type="password" name="pass" id="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required>
                         <li class="iner-botons">
+<<<<<<< HEAD
+                            <a class="recordar" href="recuperar.htm">Recordar contraseña</a><a class="" href="">Terminos y Condiciones</a>
+=======
                             <a class="recordar" href="">Recordar contraseña</a>
+>>>>>>> da9d2dd6ee3c99e9e7af5ecd0db5db67be2c49f7
                         </li>
                         <input class="iner-sign-button" type="submit" href="registrar.htm" value="Vamos!">
                     </form>
