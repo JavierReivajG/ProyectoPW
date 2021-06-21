@@ -42,7 +42,181 @@
                                     </c:forEach>
                                 </tbody>
                             </table>
-                        </div>              
+                        </div>
+                        <div class="card-body">
+                            <table class="table" table-hover>
+                                <thead>
+                                    <tr>
+                                        <th class="a">Id</th>
+                                        <th class="a">Nombre</th>
+                                        <th class="a">Correo</th>
+                                        <th class="a">Contraseña</th>
+                                        <th class="a">Tipo de usuario</th>
+                                        <th class="a-acciones">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="valor" items = "${contenido}">
+                                    <tr>
+                                        <td class="a">${valor.usuario_id}</td>
+                                        <td class="a">${valor.nombre}</td>
+                                        <td class="a">${valor.email}</td>
+                                        <td class="a">${valor.contraseña}</td>
+                                        <td class="a">${valor.tipo_usuario}</td>
+                                        <td class="bonton-container">
+                                            <a href = "autorizar.htm?codigo=${valor.usuario_id}" class = "btn btn-warning">Autorizar</a>
+                                            <a href = "denegar.htm?codigo=${valor.usuario_id}" class = "btn btn-danger">Denegar</a>
+                                        </td>
+                                    </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-body">
+                            <table class="table" table-hover>
+                                <thead>
+                                    <tr>
+                                        <th class="a">Id</th>
+                                        <th class="a">Nombre</th>
+                                        <th class="a">Correo</th>
+                                        <th class="a">Contraseña</th>
+                                        <th class="a">Tipo de usuario</th>
+                                        <th class="a-acciones">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="valor" items = "${contenido}">
+                                    <tr>
+                                        <td class="a">${valor.usuario_id}</td>
+                                        <td class="a">${valor.nombre}</td>
+                                        <td class="a">${valor.email}</td>
+                                        <td class="a">${valor.contraseña}</td>
+                                        <td class="a">${valor.tipo_usuario}</td>
+                                        <td class="bonton-container">
+                                            <a href = "autorizar.htm?codigo=${valor.usuario_id}" class = "btn btn-warning">Autorizar</a>
+                                            <a href = "denegar.htm?codigo=${valor.usuario_id}" class = "btn btn-danger">Denegar</a>
+                                        </td>
+                                    </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-body">
+                            <table class="table" table-hover>
+                                <thead>
+                                    <tr>
+                                        <th class="a">Id</th>
+                                        <th class="a">Nombre</th>
+                                        <th class="a">Correo</th>
+                                        <th class="a">Contraseña</th>
+                                        <th class="a">Tipo de usuario</th>
+                                        <th class="a-acciones">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="valor" items = "${contenido}">
+                                    <tr>
+                                        <td class="a">${valor.usuario_id}</td>
+                                        <td class="a">${valor.nombre}</td>
+                                        <td class="a">${valor.email}</td>
+                                        <td class="a">${valor.contraseña}</td>
+                                        <td class="a">${valor.tipo_usuario}</td>
+                                        <td class="bonton-container">
+                                            <a href = "autorizar.htm?codigo=${valor.usuario_id}" class = "btn btn-warning">Autorizar</a>
+                                            <a href = "denegar.htm?codigo=${valor.usuario_id}" class = "btn btn-danger">Denegar</a>
+                                        </td>
+                                    </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-body">
+                            <table class="table" table-hover>
+                                <thead>
+                                    <tr>
+                                        <th class="a">Id</th>
+                                        <th class="a">Nombre</th>
+                                        <th class="a">Correo</th>
+                                        <th class="a">Contraseña</th>
+                                        <th class="a">Tipo de usuario</th>
+                                        <th class="a-acciones">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="valor" items = "${contenido}">
+                                    <tr>
+                                        <td class="a">${valor.usuario_id}</td>
+                                        <td class="a">${valor.nombre}</td>
+                                        <td class="a">${valor.email}</td>
+                                        <td class="a">${valor.contraseña}</td>
+                                        <td class="a">${valor.tipo_usuario}</td>
+                                        <td class="bonton-container">
+                                            <a href = "autorizar.htm?codigo=${valor.usuario_id}" class = "btn btn-warning">Autorizar</a>
+                                            <a href = "denegar.htm?codigo=${valor.usuario_id}" class = "btn btn-danger">Denegar</a>
+                                        </td>
+                                    </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-body">
+                            <table class="table" table-hover>
+                                <thead>
+                                    <tr>
+                                        <th class="a">Id</th>
+                                        <th class="a">Nombre</th>
+                                        <th class="a">Correo</th>
+                                        <th class="a">Contraseña</th>
+                                        <th class="a">Tipo de usuario</th>
+                                        <th class="a-acciones">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="valor" items = "${contenido}">
+                                    <tr>
+                                        <td class="a">${valor.usuario_id}</td>
+                                        <td class="a">${valor.nombre}</td>
+                                        <td class="a">${valor.email}</td>
+                                        <td class="a">${valor.contraseña}</td>
+                                        <td class="a">${valor.tipo_usuario}</td>
+                                        <td class="bonton-container">
+                                            <a href = "autorizar.htm?codigo=${valor.usuario_id}" class = "btn btn-warning">Autorizar</a>
+                                            <a href = "denegar.htm?codigo=${valor.usuario_id}" class = "btn btn-danger">Denegar</a>
+                                        </td>
+                                    </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-body">
+                            <table class="table" table-hover>
+                                <thead>
+                                    <tr>
+                                        <th class="a">Id</th>
+                                        <th class="a">Nombre</th>
+                                        <th class="a">Correo</th>
+                                        <th class="a">Contraseña</th>
+                                        <th class="a">Tipo de usuario</th>
+                                        <th class="a-acciones">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="valor" items = "${contenido}">
+                                    <tr>
+                                        <td class="a">${valor.usuario_id}</td>
+                                        <td class="a">${valor.nombre}</td>
+                                        <td class="a">${valor.email}</td>
+                                        <td class="a">${valor.contraseña}</td>
+                                        <td class="a">${valor.tipo_usuario}</td>
+                                        <td class="bonton-container">
+                                            <a href = "autorizar.htm?codigo=${valor.usuario_id}" class = "btn btn-warning">Autorizar</a>
+                                            <a href = "denegar.htm?codigo=${valor.usuario_id}" class = "btn btn-danger">Denegar</a>
+                                        </td>
+                                    </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </li>
                 <div class="card-header bg-info text-white">
