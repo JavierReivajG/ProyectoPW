@@ -20,3 +20,13 @@ BEGIN
 	END IF;
 END;
 
+DELIMITER $$
+DROP TRIGGER IF EXISTS update_votos$$
+CREATE TRIGGER update_votos
+BEFORE UPDATE
+ON registros FOR EACH ROW
+BEGIN
+	IF NEW.no_votos < 0 OR NEW.no_votos IS NULL THEN
+		SET NEW.no_votos = 0;
+	END IF;
+END;

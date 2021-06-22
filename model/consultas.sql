@@ -96,3 +96,6 @@ JOIN casillas c ON c.casilla_id = r.casilla_id
 WHERE cn.puesto = 'Presidente Municipal'
 GROUP BY r.casilla_id,nombre,puesto
 ORDER BY puesto,Total_Votos DESC;
+
+-- CRUD --
+
