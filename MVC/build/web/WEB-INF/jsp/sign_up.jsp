@@ -19,7 +19,7 @@
                     <div class="container-slidery">
                         <form method="POST" class="form-container">
                             <input class='logininput' name="Ape" autocomplete="family-name" placeholder="Apellido (S)" type="text">
-                            <input class='logininput' name="Nom" autocomplete="name" placeholder="Nombre (S)" type="text">
+                            <input class='logininput' name="Nom" autocomplete="name" placeholder="Nombre (S)" type="text" required>
                             <input class='logininput' name="Email" autocomplete="email" placeholder="Correo" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="La direccion de correo electronica no es valida" required>
                             <input class='logininput' name="Pass" autocomplete="current-password" placeholder="contraseña" type="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required>
                             <input class='logininput' name="Tel" autocomplete="tel-local" placeholder="Numero Telefonico" type="number">          
@@ -74,17 +74,14 @@ html {
         display: flex;
         justify-content: center;
         margin-top: 5vh;
-        margin-bottom: 5h;
     }
     
     
     .section-container {
         background-color: var(--contenedores);
         border-radius: 25px;
-        width: 70vw;
-        min-width: 350px;
-        height: 70vh;
-        min-height: 450px;
+        min-width: 300px;
+        
         
     }
     
@@ -96,6 +93,7 @@ html {
     }
     
     .iner-singup  {
+        margin-bottom: 4%;
         min-width: 260px;
         color: white;
         font-size: 2rem;
@@ -113,50 +111,34 @@ html {
 
 
     .logininput {
-        border: none;
+        border:  2px solid;
+        border-color: var(--fondo);
         outline: none;
         background-color: var(--fondo);
         padding: 15px;
         border-radius: 30px;
-        width: 20vw;
         font-size: 1rem;
         min-width: 260px;
         margin-bottom: 2.5vh;
         color: var(--botones);
     }
     
-   
+    .logininput:hover {
+        border-style: solid;
+        border-color: var(--botones);
+    }
     
     .iner-botons {
         color: rgba(255, 255, 255, 0.452);
-        font-size: 2.5rem;
+        font-size: 1.5rem;
         font-weight: 500;
-        width: 90%;
-    }
-    
-
-    
-    .iner-botons .recordar {
-        float: left;
-    }
-
-    .iner-botons .recordar:hover {
-        color: var(--botones);
-    }
-
-    .iner-botons a {
-        float: right;
-        text-decoration: none;
-        color: rgba(255, 255, 255, 0.452);
-        padding-left: 5px;
-    }
-
-    .iner-botons a:hover {
-        color: var(--botones);
+        text-align: center;
+        margin-bottom: 2%;
     }
     
     .iner-sign-button{
-        margin-top: 3vh;
+        margin-top: 2vh;
+        margin-bottom: 1vh;
         background-color: var(--botones);
         border: none;
         font-size: 2rem;
@@ -176,24 +158,20 @@ html {
    
     .iner-create-acount{
         align-items: center;
-        margin-top: 2%;
+        margin-top: 4%;
+        margin-bottom: 4%;
     }
     
     .iner-create-acount span {
         color: rgba(255, 255, 255, 0.452);
-        font-size: 2rem;
-        width: 75%; 
+        font-size: 1.5rem; 
     }
     
     .iner-create-acount a {
-        color: rgba(255, 255, 255, 0.452);
-        font-size: 3rem;
-        width: 75%; 
-        margin-left: 10px;
+        font-size: 1.5rem; 
         color: var(--botones);
         text-decoration: none;
     }
-    
     
     .slidery {
         display: flex;
@@ -235,15 +213,12 @@ html {
     .section-container {
         background-color: var(--contenedores);
         border-radius: 25px;
-        width: 70vw;
         min-width: 350px;
-        height: 70vh;
         min-height: 450px;
-        
     }
     
     .container-iner {
-        margin-top: 5%;
+        margin-top: 3%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -258,6 +233,7 @@ html {
         font-weight: 600;
         text-decoration: none;
         list-style: none;
+        margin-bottom: 1%;
     }
     
     .form-container {
@@ -267,50 +243,35 @@ html {
 
 
     .logininput {
-        border: none;
+        border:  2px solid;
+        border-color: var(--fondo);
         outline: none;
         background-color: var(--fondo);
         padding: 20px;
         border-radius: 30px;
-        width: 30vw;
         font-size: 2rem;
         min-width: 260px;
         margin-bottom: 2.5vh;
         color: var(--botones);
     }
-    
-   
+
+    .logininput:hover {
+        border-style: solid;
+        border-color: var(--botones);
+    }
     
     .iner-botons {
         color: rgba(255, 255, 255, 0.452);
         font-size: 2.5rem;
         font-weight: 500;
-        width: 90%;
-    }
-    
-
-    
-    .iner-botons .recordar {
-        float: left;
-    }
-
-    .iner-botons .recordar:hover {
-        color: var(--botones);
-    }
-
-    .iner-botons a {
-        float: right;
-        text-decoration: none;
-        color: rgba(255, 255, 255, 0.452);
-        padding-left: 5px;
-    }
-
-    .iner-botons a:hover {
-        color: var(--botones);
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1%;
     }
     
     .iner-sign-button{
         margin-top: 3vh;
+        margin-bottom: 1vh;
         background-color: var(--botones);
         border: none;
         font-size: 4rem;
@@ -331,6 +292,7 @@ html {
     .iner-create-acount{
         align-items: center;
         margin-top: 2%;
+        margin-bottom: 2%;
     }
     
     .iner-create-acount span {
@@ -350,11 +312,12 @@ html {
     
     
     .slidery {
+        
         display: flex;
         flex-direction: column;
         gap: 5px;
         width: 100%;
-        height: 45vh;
+        height: 55vh;
         min-height: 200px;
         overflow-y: scroll;
         scroll-snap-type: y proximity;
@@ -365,6 +328,17 @@ html {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        background: var(--fondo);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--contenedores);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--botones);
     }
 }
 </style>

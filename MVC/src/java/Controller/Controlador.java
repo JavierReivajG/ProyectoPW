@@ -31,9 +31,7 @@ public class Controlador {
     int codigo;
     public static String Email, Pass;
     List datos, datos1, datos2, usuarios;
-    
-    //ResultSet rs = null;
-    
+        
     @RequestMapping("index.htm")
     public ModelAndView Listar(){
         String sql="SELECT r.casilla_id,puesto,alianza AS \"Alianza_o_Partido\", SUM(no_votos) Total_Votos\n" +

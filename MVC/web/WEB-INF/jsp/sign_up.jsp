@@ -19,22 +19,22 @@
                     <div class="container-slidery">
                         <form method="POST" class="form-container">
                             <input class='logininput' name="Ape" autocomplete="family-name" placeholder="Apellido (S)" type="text">
-                            <input class='logininput' name="Nom" autocomplete="name" placeholder="Nombre (S)" type="text">
+                            <input class='logininput' name="Nom" autocomplete="name" placeholder="Nombre (S)" type="text" required>
                             <input class='logininput' name="Email" autocomplete="email" placeholder="Correo" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="La direccion de correo electronica no es valida" required>
                             <input class='logininput' name="Pass" autocomplete="current-password" placeholder="contraseña" type="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required>
                             <input class='logininput' name="Tel" autocomplete="tel-local" placeholder="Numero Telefonico" type="number">          
                             <p class="iner-botons">Direcciones</p>
-                            <input class='logininput' name="Calle" autocomplete="address-line3" placeholder="Calle" type="text">
-                            <input class='logininput' name="Col" autocomplete="street-address" placeholder="Colonia" type="text">
-                            <input class='logininput' name="Num" autocomplete="address-line1" placeholder="Numero interior y exterior" type="text">
-                            <input class='logininput' name="Mun" autocomplete="cc-additional-name" placeholder="Municipio" type="text">
+                            <input class='logininput' name="Calle" autocomplete="address-line3" placeholder="Calle" type="text" required>
+                            <input class='logininput' name="Col" autocomplete="street-address" placeholder="Colonia" type="text" required>
+                            <input class='logininput' name="Num" autocomplete="address-line1" placeholder="Numero interior y exterior" type="text" required>
+                            <input class='logininput' name="Mun" autocomplete="cc-additional-name" placeholder="Municipio" type="text" required>
                             <input class='logininput' name="Cp" autocomplete="postal-code" placeholder="Codigo Postal" type="text">
                             <input class='logininput' name="Red" placeholder="Red Social" type="text">
                             <input class="iner-sign-button" type="submit" value="Vamos!">
                         </form>
                     </div>
                 </li>
-                <li class="iner-create-acount"><span>Ya tienes cuenta? </span> <a href="index.htm"> Inicia Sesion</a></li>
+                <li class="iner-create-acount"><span>Ya tienes cuenta? </span> <a href="sign_in.htm"> Inicia Sesion</a></li>
             </ul>
         </section>
     </main>
