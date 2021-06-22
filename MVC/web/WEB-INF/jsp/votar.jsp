@@ -45,7 +45,7 @@
                         </select><BR>
                         
                         <label>Votos</label>
-                        <input type="text" name="vot" class="form-control"><BR>
+                        <input type="number" name="vot" class="form-control" required><BR>
                         
                         <input type="submit" value="Registrar" class="btn btn-success">
                         <a href="conteo.htm">Consultar Conteo de Votos</a>

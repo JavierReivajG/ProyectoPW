@@ -22,7 +22,6 @@
                         <thead>
                             <tr>
                                 <th>Casilla</th>
-                                <th>Puesto</th>
                                 <th>Alianza o Partido</th>
                                 <th>Total de votos</th>
                             </tr>
@@ -31,7 +30,6 @@
                             <c:forEach var="dato" items = "${lista}">
                             <tr>
                                 <td>${dato.casilla_id}</td>
-                                <td>${dato.puesto}</td>
                                 <td>${dato.alianza_o_partido}</td>
                                 <td>${dato.total_votos}</td>
                             </tr>
@@ -44,7 +42,6 @@
                         <thead>
                             <tr>
                                 <th>Casilla</th>
-                                <th>Puesto</th>
                                 <th>Alianza o Partido</th>
                                 <th>Total de votos</th>
                             </tr>
@@ -53,7 +50,6 @@
                             <c:forEach var="dato1" items = "${lista1}">
                             <tr>
                                 <td>${dato1.casilla_id}</td>
-                                <td>${dato1.puesto}</td>
                                 <td>${dato1.alianza_o_partido}</td>
                                 <td>${dato1.total_votos}</td>
                             </tr>
@@ -66,7 +62,6 @@
                         <thead>
                             <tr>
                                 <th>Casilla</th>
-                                <th>Puesto</th>
                                 <th>Alianza o Partido</th>
                                 <th>Total de votos</th>
                             </tr>
@@ -75,7 +70,6 @@
                             <c:forEach var="dato2" items = "${lista2}">
                             <tr>
                                 <td>${dato2.casilla_id}</td>
-                                <td>${dato2.puesto}</td>
                                 <td>${dato2.alianza_o_partido}</td>
                                 <td>${dato2.total_votos}</td>
                             </tr>

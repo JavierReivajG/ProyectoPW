@@ -22,7 +22,6 @@
                                 <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Correo</th>
-                                <th>Contraseña</th>
                                 <th>Tipo de usuario</th>
                                 <th>Acciones</th>
                             </tr>
@@ -33,11 +32,11 @@
                                 <td>${valor.usuario_id}</td>
                                 <td>${valor.nombre}</td>
                                 <td>${valor.email}</td>
-                                <td>${valor.contraseña}</td>
                                 <td>${valor.tipo_usuario}</td>
                                 <td>
-                                    <a href = "autorizar.htm?codigo=${valor.usuario_id}" class = "btn btn-warning">Autorizar</a>
-                                    <a href = "denegar.htm?codigo=${valor.usuario_id}" class = "btn btn-danger">Denegar</a>
+                                    <a href = "autorizar.htm?codigo=${valor.usuario_id}" class = "btn btn-primary">Autorizar</a>
+                                    <a href = "denegar.htm?codigo=${valor.usuario_id}" class = "btn btn-warning">Denegar</a>
+                                    <a href = "eliminar.htm?codigo=${valor.usuario_id}" class = "btn btn-danger">Eliminar</a>
                                 </td>
                             </tr>
                             </c:forEach>

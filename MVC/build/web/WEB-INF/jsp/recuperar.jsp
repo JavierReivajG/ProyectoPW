@@ -8,7 +8,13 @@
         <title>Recuperar Contraseña</title>
         <script type="text/javascript">
 		function alertar(){
-                    alert("Se ha enviado un correo de recuperación. Por favor verifique su bandeja.");
+                      var x = document.getElementsByName("Email")[0].value;
+                    if (x == ""){
+                        alert ("Por favor, ingrese su cuenta de correo.");
+                    }
+                    else{
+                        alert ("Se ha enviado un correo de recuperación. Por favor verifique su bandeja.");
+                    }
 		}
 	</script>
     </head>
@@ -22,7 +28,7 @@
                     <form method="POST">
                         
                         <label>Correo Electrónico</label>
-                        <input name="Email" class="form-control" autocomplete="email" placeholder="Correo" type="email"><BR>
+                        <input name="Email" class="form-control" autocomplete="email" placeholder="Correo" type="email" required><BR>
                         
                         <input type="submit" value="Enviar" onclick="alertar()" class="btn btn-success">
 

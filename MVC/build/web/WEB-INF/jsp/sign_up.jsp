@@ -24,10 +24,10 @@
                             <input class='logininput' name="Pass" autocomplete="current-password" placeholder="contraseña" type="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required>
                             <input class='logininput' name="Tel" autocomplete="tel-local" placeholder="Numero Telefonico" type="number">          
                             <p class="iner-botons">Direcciones</p>
-                            <input class='logininput' name="Calle" autocomplete="address-line3" placeholder="Calle" type="text">
-                            <input class='logininput' name="Col" autocomplete="street-address" placeholder="Colonia" type="text">
-                            <input class='logininput' name="Num" autocomplete="address-line1" placeholder="Numero interior y exterior" type="text">
-                            <input class='logininput' name="Mun" autocomplete="cc-additional-name" placeholder="Municipio" type="text">
+                            <input class='logininput' name="Calle" autocomplete="address-line3" placeholder="Calle" type="text" required>
+                            <input class='logininput' name="Col" autocomplete="street-address" placeholder="Colonia" type="text" required>
+                            <input class='logininput' name="Num" autocomplete="address-line1" placeholder="Numero interior y exterior" type="text" required>
+                            <input class='logininput' name="Mun" autocomplete="cc-additional-name" placeholder="Municipio" type="text" required>
                             <input class='logininput' name="Cp" autocomplete="postal-code" placeholder="Codigo Postal" type="text">
                             <input class='logininput' name="Red" placeholder="Red Social" type="text">
                             <input class="iner-sign-button" type="submit" value="Vamos!">

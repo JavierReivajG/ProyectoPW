@@ -1,7 +1,5 @@
 
 package Config;
-
-import Controller.Controlador;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 //import Entidad.Usuario;
 

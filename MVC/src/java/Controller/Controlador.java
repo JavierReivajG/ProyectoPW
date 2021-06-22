@@ -114,7 +114,7 @@ public class Controlador {
         return new ModelAndView("redirect:/registrar.htm");
         }
         else{
-        return new ModelAndView("redirect:/sign_in.htm");
+        return new ModelAndView("redirect:/esperaValid.htm");
         }
     }
     
@@ -131,8 +131,6 @@ public class Controlador {
         this.jdbcTemplate.update(sql, u.getNom(), u.getApe(), u.getEmail(), u.getPass(), u.getTel(), u.getRed());
         sql = "INSERT INTO domicilios (usuario_id, municipio, calle, numero, colonia, cp) values ((SELECT MAX(usuario_id) FROM usuarios),?,?,?,?,?)";
         this.jdbcTemplate.update(sql,u.getMun(),u.getCalle(),u.getNum(),u.getCol(),u.getCp());
-        sql = "CREATE USER '"+u.getEmail()+"'@'localhost' IDENTIFIED BY '"+u.getPass()+"'";
-        this.jdbcTemplate.update(sql);
         return new ModelAndView("redirect:/sign_in.htm");
     }
     
@@ -224,7 +222,7 @@ public class Controlador {
     
     @RequestMapping("validar.htm")
     public ModelAndView Validar(){
-        String sql="Select usuario_id, nombre, email, contraseña, tipo_usuario from usuarios";
+        String sql="Select usuario_id, nombre, email, tipo_usuario from usuarios";
         usuarios=this.jdbcTemplate.queryForList(sql);
         mav.addObject("contenido",usuarios);
         mav.setViewName("validar");
@@ -247,6 +245,14 @@ public class Controlador {
         return new ModelAndView("redirect:/validar.htm");
     }
     
+    @RequestMapping(value = "eliminar.htm")
+    public ModelAndView Eliminar(HttpServletRequest request){
+        codigo =Integer.parseInt(request.getParameter("codigo"));
+        String sql = "DELETE FROM usuarios where usuario_id = "+codigo;
+        this.jdbcTemplate.update(sql);
+        return new ModelAndView("redirect:/validar.htm");
+    }
+    
     @RequestMapping(value = "recuperar.htm", method = RequestMethod.GET)
     public ModelAndView Recuperar(){
         mav.addObject(new Usuario());
@@ -256,12 +262,14 @@ public class Controlador {
     
     @RequestMapping (value = "recuperar.htm", method = RequestMethod.POST)
     public ModelAndView Recuperar(Usuario recUs){
-        
+        try{
             String correo = recUs.getEmail();
             String sql = "Select contraseña from usuarios where email = '"+correo+"'";
             String tipUs = (String) jdbcTemplate.queryForObject(sql, new Object[] {}, String.class);
-            //Aquí va todo el menjurge
+            System.out.println(tipUs);
             
+            //Aquí va todo el menjurge
+        
             try {
             Properties props = new Properties();
             props.setProperty("mail.smtp.host", "smtp.gmail.com");
@@ -275,7 +283,6 @@ public class Controlador {
             String passwordRemitente = "prep1234";
             String asunto = "Recuperar Contraseña PREP 2021";
             String mensaje = "La contraseña correspondienta a la cuenta " +correo+ " es: " + tipUs;
-            System.out.println(mensaje);
             
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(correoRemitente));
@@ -293,8 +300,23 @@ public class Controlador {
         } catch (MessagingException ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+            
+        }catch(Exception e){
+            return new ModelAndView("redirect:/emailNotFound.htm");
+        }
         return new ModelAndView("redirect:/sign_in.htm");
+    }
+    
+    @RequestMapping ("emailNotFound.htm")
+    public ModelAndView enf(){
+        mav.setViewName("emailNotFound");
+        return mav;
+    }
+    
+    @RequestMapping ("esperaValid.htm")
+    public ModelAndView Espera(){
+        mav.setViewName("esperaValid");
+        return mav;
     }
     
 }
