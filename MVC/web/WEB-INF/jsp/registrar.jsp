@@ -17,7 +17,7 @@
                     <form method="POST">
 
                         <label>Numero de Casilla</label><BR>
-                        <input type="text" name="id" class="form-control">
+                        <input type="number" name="id" class="form-control" required>
                         <label>Casilla</label>
                         <!--<input type="text" name="cas" class="form-control">-->
                         <select name="cas" class="form-control">
@@ -26,11 +26,93 @@
                             <option value="Especial">Especial</option>
                             <option value="Extraordinaria">Extraordinaria</option>
                             <option value="Otra">Otra</option>
-                        </select><BR>
+                        </select>
                         <label>Seccional</label>
-                        <input type="text" name="sec" class="form-control"><BR>
+                        
+                        <select name="sec" class="form-control">
+                            <option value = "2650">2650</option>
+<option value = "2651">2651</option>
+<option value = "2652">2652</option>
+<option value = "2653">2653</option>
+<option value = "2654">2654</option>
+<option value = "2655">2655</option>
+<option value = "2656">2656</option>
+<option value = "2657">2657</option>
+<option value = "2658">2658</option>
+<option value = "2659">2659</option>
+<option value = "2660">2660</option>
+<option value = "2661">2661</option>
+<option value = "2662">2662</option>
+<option value = "2663">2663</option>
+<option value = "2664">2664</option>
+<option value = "2665">2665</option>
+<option value = "2666">2666</option>
+<option value = "2667">2667</option>
+<option value = "2668">2668</option>
+<option value = "2669">2669</option>
+<option value = "2670">2670</option>
+<option value = "2671">2671</option>
+<option value = "2672">2672</option>
+<option value = "2673">2673</option>
+<option value = "2674">2674</option>
+<option value = "2675">2675</option>
+<option value = "2676">2676</option>
+<option value = "2677">2677</option>
+<option value = "2678">2678</option>
+<option value = "2679">2679</option>
+<option value = "2680">2680</option>
+<option value = "2681">2681</option>
+<option value = "2682">2682</option>
+<option value = "2683">2683</option>
+<option value = "2684">2684</option>
+<option value = "2685">2685</option>
+<option value = "2686">2686</option>
+<option value = "2687">2687</option>
+<option value = "2688">2688</option>
+<option value = "2689">2689</option>
+<option value = "2690">2690</option>
+<option value = "2691">2691</option>
+<option value = "2692">2692</option>
+<option value = "2693">2693</option>
+<option value = "2694">2694</option>
+<option value = "2695">2695</option>
+<option value = "2696">2696</option>
+<option value = "2697">2697</option>
+<option value = "2698">2698</option>
+<option value = "2699">2699</option>
+<option value = "2700">2700</option>
+<option value = "2701">2701</option>
+<option value = "2702">2702</option>
+<option value = "2703">2703</option>
+<option value = "2704">2704</option>
+<option value = "2705">2705</option>
+<option value = "2706">2706</option>
+<option value = "2707">2707</option>
+<option value = "2708">2708</option>
+<option value = "2709">2709</option>
+<option value = "2710">2710</option>
+<option value = "2711">2711</option>
+<option value = "2712">2712</option>
+<option value = "2713">2713</option>
+<option value = "2714">2714</option>
+<option value = "2715">2715</option>
+<option value = "2716">2716</option>
+<option value = "2717">2717</option>
+<option value = "2718">2718</option>
+<option value = "2719">2719</option>
+<option value = "2720">2720</option>
+<option value = "2721">2721</option>
+<option value = "2722">2722</option>
+<option value = "2723">2723</option>
+<option value = "2724">2724</option>
+<option value = "2725">2725</option>
+<option value = "2726">2726</option>
+<option value = "2727">2727</option>
+<option value = "2728">2728</option>
+<option value = "2729">2729</option>
+                        </select><BR>
                         <input type="submit" value="Registrar" class="btn btn-success">
-                        <a href="index.htm">Regresar</a>
+                        <a href="sign_in.htm">Regresar</a>
                     </form>
                 </div>
             </div>

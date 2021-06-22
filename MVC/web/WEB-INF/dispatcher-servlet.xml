@@ -23,6 +23,15 @@
                 <prop key="registrar.htm">controlador</prop>
                 <prop key="sign_up.htm">controlador</prop>
                 <prop key="votar.htm">controlador</prop>
+                <prop key="sign_in.htm">controlador</prop>
+                <prop key="esperaValid.htm">controlador</prop>
+                <prop key="conteo.htm">controlador</prop>
+                <prop key="validar.htm">controlador</prop>
+                <prop key="autorizar.htm">controlador</prop>
+                <prop key="denegar.htm">controlador</prop>
+                <prop key="eliminar.htm">controlador</prop>
+                <prop key="recuperar.htm">controlador</prop>
+                <prop key="emailNotFound.htm">controlador</prop>
                 
             </props>
         </property>
