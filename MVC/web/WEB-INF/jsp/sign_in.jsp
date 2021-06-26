@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesion</title>
+    <title>Iniciar Sesión</title>
 </head>
 <body class="body-signing">
     <main class="main-container-sign_in">
@@ -18,13 +18,13 @@
                 <li class="iner-email">
                     <form class="container-iner"  action="" method = "POST">
                         <span class="invalid" id="correo-comprobacion"></span>
-                        <input autocomplete="username" class="logininput" placeholder="correo@ejemplo.com" type="text" name="username" id="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="La direccion de correo electronica no es valida" required>
+                        <input autocomplete="username" class="logininput" placeholder="correo@ejemplo.com" type="text" name="Email" id="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="La direccion de correo electronica no es valida" required>
                         <span class="password-icon"></span>
-                        <input autocomplete="current-password" class="logininput" placeholder="contraseña" type="password" name="password" id="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required>
+                        <input autocomplete="current-password" class="logininput" placeholder="contraseña" type="password" name="Pass" id="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required>
                         <li class="iner-botons">
                             <a class="recordar" href="recuperar.htm">Recordar contraseña</a>
                         </li>
-                        <input class="iner-sign-button" type="submit" value="Vamos!">
+                        <input class="iner-sign-button" type="submit" value="Vamos!"><BR>
                     </form>
                 </li>
                 <li class="iner-create-acount">

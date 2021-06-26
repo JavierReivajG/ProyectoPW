@@ -30,6 +30,7 @@ public class Controlador {
     ModelAndView mav=new ModelAndView();
     int codigo;
     public static String Email, Pass;
+    String tipUs;
     List datos, datos1, datos2, usuarios;
         
     @RequestMapping("index.htm")
@@ -104,15 +105,20 @@ public class Controlador {
     
     @RequestMapping (value = "sign_in.htm", method = RequestMethod.POST)
     public ModelAndView Sign_in(Usuario us){
+        try{
         Email = us.getEmail();
         Pass = us.getPass();
         String sql = "Select tipo_usuario from usuarios where email = '"+Email+"' AND contraseña = '"+Pass+"'";
-        String tipUs = (String) jdbcTemplate.queryForObject(sql, new Object[] {}, String.class);
+        tipUs = (String) jdbcTemplate.queryForObject(sql, new Object[] {}, String.class);
         if (tipUs.equals("Autorizado")){
         return new ModelAndView("redirect:/registrar.htm");
         }
         else{
         return new ModelAndView("redirect:/esperaValid.htm");
+        }
+        
+        }catch(Exception e){
+            return new ModelAndView("redirect:/incorrect.htm");
         }
     }
     
@@ -134,9 +140,18 @@ public class Controlador {
     
     @RequestMapping(value = "registrar.htm", method = RequestMethod.GET)
     public ModelAndView Registrar(){
+        try{
+        if (tipUs.equals("Autorizado")){
         mav.addObject(new Registro());
         mav.setViewName("registrar");
         return mav;
+        }
+        else{
+            return new ModelAndView("redirect:/esperaValid.htm");
+        }
+        } catch(Exception e){
+            return new ModelAndView("redirect:/emailNotFound.htm");
+        }
     }
     @RequestMapping(value = "registrar.htm", method = RequestMethod.POST)
     public ModelAndView Registrar(Registro r){
@@ -147,9 +162,17 @@ public class Controlador {
     
     @RequestMapping(value = "votar.htm", method = RequestMethod.GET)
     public ModelAndView Votar(){
+        try{
+        if (tipUs.equals("Autorizado")){
         mav.addObject(new Voto());
         mav.setViewName("votar");
         return mav;
+        } else{
+            return new ModelAndView("redirect:/esperaValid.htm");
+        }
+        } catch(Exception e){
+            return new ModelAndView("redirect:/emailNotFound.htm");
+        }
     }
     @RequestMapping(value = "votar.htm", method = RequestMethod.POST)
     public ModelAndView Votar(Voto v){
@@ -160,6 +183,8 @@ public class Controlador {
     
     @RequestMapping("conteo.htm")
     public ModelAndView Contar(){
+        try{
+        if (tipUs.equals("Autorizado")){
          String sql="SELECT r.casilla_id,puesto,alianza AS \"Alianza_o_Partido\", SUM(no_votos) Total_Votos\n" +
 "FROM registros r\n" +
 "JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
@@ -216,15 +241,29 @@ public class Controlador {
         mav.addObject("cont2",datos2);
         mav.setViewName("conteo");
         return mav;
+        } else{
+            return new ModelAndView("redirect:/esperaValid.htm");
+        }
+        } catch(Exception e){
+            return new ModelAndView("redirect:/emailNotFound.htm");
+        }
     }
     
     @RequestMapping("validar.htm")
     public ModelAndView Validar(){
+        try{
+        if (tipUs.equals("Autorizado")){
         String sql="Select usuario_id, nombre, email, tipo_usuario from usuarios";
         usuarios=this.jdbcTemplate.queryForList(sql);
         mav.addObject("contenido",usuarios);
         mav.setViewName("validar");
         return mav;
+        } else{
+            return new ModelAndView("redirect:/esperaValid.htm");
+        }
+        } catch(Exception e){
+            return new ModelAndView("redirect:/emailNotFound.htm");
+        }
     }
 
     @RequestMapping(value = "autorizar.htm")
@@ -263,10 +302,7 @@ public class Controlador {
         try{
             String correo = recUs.getEmail();
             String sql = "Select contraseña from usuarios where email = '"+correo+"'";
-            String tipUs = (String) jdbcTemplate.queryForObject(sql, new Object[] {}, String.class);
-            System.out.println(tipUs);
-            
-            //Aquí va todo el menjurge
+            String contra = (String) jdbcTemplate.queryForObject(sql, new Object[] {}, String.class);
         
             try {
             Properties props = new Properties();
@@ -280,7 +316,7 @@ public class Controlador {
             String correoRemitente = "prep.recovery@gmail.com";
             String passwordRemitente = "prep1234";
             String asunto = "Recuperar Contraseña PREP 2021";
-            String mensaje = "La contraseña correspondienta a la cuenta " +correo+ " es: " + tipUs;
+            String mensaje = "La contraseña correspondienta a la cuenta " +correo+ " es: " + contra;
             
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(correoRemitente));
@@ -314,6 +350,12 @@ public class Controlador {
     @RequestMapping ("esperaValid.htm")
     public ModelAndView Espera(){
         mav.setViewName("esperaValid");
+        return mav;
+    }
+    
+    @RequestMapping ("incorrect.htm")
+    public ModelAndView Incorrect(){
+        mav.setViewName("incorrect");
         return mav;
     }
     

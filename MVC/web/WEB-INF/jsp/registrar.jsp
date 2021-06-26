@@ -17,7 +17,7 @@
                     <form method="POST">
 
                         <label>Numero de Casilla</label><BR>
-                        <input type="number" name="id" class="form-control" required>
+                        <input type="number" name="id" class="form-control" min="1" pattern="^[0-9]+" step="1" required>
                         <label>Casilla</label>
                         <!--<input type="text" name="cas" class="form-control">-->
                         <select name="cas" class="form-control">

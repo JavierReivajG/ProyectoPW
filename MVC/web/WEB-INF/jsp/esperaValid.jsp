@@ -9,6 +9,6 @@
     <body>
         <center>
             <h1>Su cuenta está en espera de ser validad, por favor intentelo más tarde.</h1><BR><BR>
-            <a href="sign_in.htm"><h3>Aceptar</h3></a>
+            <a href="javascript: history.go(-1)"><h3>Aceptar</h3></a>
     </body>
 </html>
