@@ -8,7 +8,7 @@
     </head>
     <body>
         <center>
-            <h1>No se ha encontrado ninguna cuenta asociada a ese correo</h1><BR><BR>
-            <a href="recuperar.htm"><h3>Aceptar</h3></a>
+            <h1>No se ha encontrado ninguna cuenta asociada.</h1><BR><BR>
+            <a href="javascript: history.go(-1)"><h3>Aceptar</h3></a>
     </body>
 </html>
