@@ -50,8 +50,9 @@
         </div>
         </center>
     </body>
-    <style>
-        :root {
+</html>
+<style>
+:root {
         --fondo: rgb(21,33,43);
         --contenedores: rgb(37,45,56);
         --botones: rgb(123,183,98);
@@ -221,10 +222,18 @@
             font-size: 3rem;
         }
 
+        p {
+            margin: 2%;
+            text-align: center;
+            color:white;
+            font-size: 2rem;
+        }
+
         .a  {
             color: white;
             font-size: 2rem;
             width: 20vw;
+            text-align: center;
         }
 
         .a-acciones {
@@ -315,6 +324,4 @@
         100% {background-position-y: -480px;}
         }
     }
-    </style>
-</html>
-
+</style>

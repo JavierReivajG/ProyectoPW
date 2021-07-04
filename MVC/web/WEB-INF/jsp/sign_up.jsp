@@ -41,9 +41,9 @@
 </body>
 <style>
     :root {
-    --fondo: rgb(51,56,90);
-    --contenedores: rgb(32,36,66);
-    --botones: rgb(65,205,125);
+    --fondo: rgb(21,33,43);
+    --contenedores: rgb(37,45,56);
+    --botones: rgb(123,183,98);
 }
 
 
