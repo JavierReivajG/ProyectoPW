@@ -28,9 +28,5 @@ CREATE FUNCTION num_votos(
         RETURN n;
 	END $$
 
-CREATE FUNCTION promedio_candidatos(
-	partido VARCHAR(30))
-	
-    BEGIN
 		
 		

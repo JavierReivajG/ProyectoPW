@@ -28,7 +28,7 @@
                         <tbody>
                             <c:forEach var="dato3" items = "${cont}">
                             <tr>
-                                <td>${dato3.casilla_id}</td>
+                                <td>${dato3.numero_casilla}</td>
                                 <td>${dato3.alianza_o_partido}</td>
                                 <td>${dato3.total_votos}</td>
                             </tr>
@@ -48,7 +48,7 @@
                         <tbody>
                             <c:forEach var="dato4" items = "${cont1}">
                             <tr>
-                                <td>${dato4.casilla_id}</td>
+                                <td>${dato4.numero_casilla}</td>
                                 <td>${dato4.alianza_o_partido}</td>
                                 <td>${dato4.total_votos}</td>
                             </tr>
@@ -68,7 +68,7 @@
                         <tbody>
                             <c:forEach var="dato5" items = "${cont2}">
                             <tr>
-                                <td>${dato5.casilla_id}</td>
+                                <td>${dato5.numero_casilla}</td>
                                 <td>${dato5.alianza_o_partido}</td>
                                 <td>${dato5.total_votos}</td>
                             </tr>

@@ -28,10 +28,16 @@
                         <tbody>
                             <c:forEach var="dato3" items = "${cont}">
                             <tr>
+<<<<<<< HEAD
                                 <td class="a">${dato3.casilla_id}</td>
                                 <td class="a">${dato3.puesto}</td>
                                 <td class="a">${dato3.alianza_o_partido}</td>
                                 <td class="a">${dato3.total_votos}</td>
+=======
+                                <td>${dato3.numero_casilla}</td>
+                                <td>${dato3.alianza_o_partido}</td>
+                                <td>${dato3.total_votos}</td>
+>>>>>>> ad01f51309fc4f96b92f89be46f08690643506c2
                             </tr>
                             </c:forEach>
                         </tbody>
@@ -50,10 +56,16 @@
                         <tbody>
                             <c:forEach var="dato4" items = "${cont1}">
                             <tr>
+<<<<<<< HEAD
                                 <td class="a">${dato4.casilla_id}</td>
                                 <td class="a">${dato4.puesto}</td>
                                 <td class="a">${dato4.alianza_o_partido}</td>
                                 <td class="a">${dato4.total_votos}</td>
+=======
+                                <td>${dato4.numero_casilla}</td>
+                                <td>${dato4.alianza_o_partido}</td>
+                                <td>${dato4.total_votos}</td>
+>>>>>>> ad01f51309fc4f96b92f89be46f08690643506c2
                             </tr>
                             </c:forEach>
                         </tbody>
@@ -72,10 +84,16 @@
                         <tbody>
                             <c:forEach var="dato5" items = "${cont2}">
                             <tr>
+<<<<<<< HEAD
                                 <td class="a">${dato5.casilla_id}</td>
                                 <td class="a">${dato5.puesto}</td>
                                 <td class="a">${dato5.alianza_o_partido}</td>
                                 <td class="a">${dato5.total_votos}</td>
+=======
+                                <td>${dato5.numero_casilla}</td>
+                                <td>${dato5.alianza_o_partido}</td>
+                                <td>${dato5.total_votos}</td>
+>>>>>>> ad01f51309fc4f96b92f89be46f08690643506c2
                             </tr>
                             </c:forEach>
                         </tbody>

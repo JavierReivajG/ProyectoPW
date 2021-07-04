@@ -29,7 +29,7 @@
                         <tbody>
                             <c:forEach var="dato" items = "${lista}">
                             <tr>
-                                <td>${dato.casilla_id}</td>
+                                <td>${dato.numero_casilla}</td>
                                 <td>${dato.alianza_o_partido}</td>
                                 <td>${dato.total_votos}</td>
                             </tr>
@@ -49,7 +49,7 @@
                         <tbody>
                             <c:forEach var="dato1" items = "${lista1}">
                             <tr>
-                                <td>${dato1.casilla_id}</td>
+                                <td>${dato1.numero_casilla}</td>
                                 <td>${dato1.alianza_o_partido}</td>
                                 <td>${dato1.total_votos}</td>
                             </tr>
@@ -69,7 +69,7 @@
                         <tbody>
                             <c:forEach var="dato2" items = "${lista2}">
                             <tr>
-                                <td>${dato2.casilla_id}</td>
+                                <td>${dato2.numero_casilla}</td>
                                 <td>${dato2.alianza_o_partido}</td>
                                 <td>${dato2.total_votos}</td>
                             </tr>
