@@ -1,347 +1,51 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <!--<link rel="stylesheet" href="./css/sign_up.css">
-    <script src="/src/js/Sing_up.js"></script>-->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up</title>
-</head>
-<body class="body-signing">
-    <main class="main-container-sign_in">
-        <section class="section-container">
-            <ul class="container-iner">
-                <li class="iner-singup"><p>Crear Cuenta</p></li>
-                <li class="slidery">
-                    <div class="container-slidery">
-                        <form method="POST" class="form-container">
-                            <input class='logininput' name="Ape" autocomplete="family-name" placeholder="Apellido (S)" type="text">
-                            <input class='logininput' name="Nom" autocomplete="name" placeholder="Nombre (S)" type="text" required>
-                            <input class='logininput' name="Email" autocomplete="email" placeholder="Correo" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="La direccion de correo electronica no es valida" required>
-                            <input class='logininput' name="Pass" autocomplete="current-password" placeholder="contraseña" type="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required>
-                            <input class='logininput' name="Tel" autocomplete="tel-local" placeholder="Numero Telefonico" type="number">          
-                            <p class="iner-botons">Direcciones</p>
-                            <input class='logininput' name="Calle" autocomplete="address-line3" placeholder="Calle" type="text" required>
-                            <input class='logininput' name="Col" autocomplete="street-address" placeholder="Colonia" type="text" required>
-                            <input class='logininput' name="Num" autocomplete="address-line1" placeholder="Numero interior y exterior" type="text" required>
-                            <input class='logininput' name="Mun" autocomplete="cc-additional-name" placeholder="Municipio" type="text" required>
-                            <input class='logininput' name="Cp" autocomplete="postal-code" placeholder="Codigo Postal" type="text">
-                            <input class='logininput' name="Red" placeholder="Red Social" type="text">
-                            <input class="iner-sign-button" type="submit" value="Vamos!">
-                        </form>
-                    </div>
-                </li>
-                <li class="iner-create-acount"><span>Ya tienes cuenta? </span> <a href="sign_in.htm"> Inicia Sesion</a></li>
-            </ul>
-        </section>
-    </main>
-</body>
-<style>
-    :root {
-    --fondo: rgb(51,56,90);
-    --contenedores: rgb(32,36,66);
-    --botones: rgb(65,205,125);
-}
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <title>Crear cuenta</title>
+    </head>
+    <body>
+        <center>
+        <h3>Programa de Resultados Electorales Preliminares 2021</h3>
+          <div class="container mt-4 col-lg-4">
+            <div class = "card border-info ">
+                <div class="card-header bg-info">
+                    <H4>Crear cuenta</h4>
+                </div>
+                <div class ="card-body">
+                    <form method="POST">
 
+                        <label><h4>Apellidos</h4></label>
+                        <input class="form-control" name="Ape" autocomplete="family-name" placeholder="Apellidos" type="text"><br>
+                        <label><h4>Nombres</h4></label>
+                        <input class="form-control" name="Nom" autocomplete="name" placeholder="Nombres" type="text" required><br>
+                        <label><h4>Correo</h4></label>
+                        <input class="form-control" name="Email" autocomplete="email" placeholder="ejemplo@gmail.com" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="La direccion de correo electronica no es valida" required><br>
+                        <label><h4>Contraseña</h4></label>
+                        <input class="form-control" name="Pass" autocomplete="current-password" placeholder="5 caracteres minimo" type="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required><br>
+                        <label><h4>Teléfono</h4></label>
+                        <input class="form-control" name="Tel" autocomplete="tel-local" placeholder="Número telefónico" type="number"><br>
+                        <label><h4>Calle</h4></label>
+                        <input class="form-control" name="Calle" autocomplete="address-line3" placeholder="Calle" type="text" required><br>
+                        <label><h4>Colonia</h4></label>
+                        <input class="form-control" name="Col" autocomplete="street-address" placeholder="Colonia" type="text" required><br>
+                        <label><h4>Número</h4></label>
+                        <input class="form-control" name="Num" autocomplete="address-line1" placeholder="Número interior y exterior" type="text" required><br>
+                        <label><h4>Municipio</h4></label>
+                        <input class="form-control" name="Mun" autocomplete="cc-additional-name" placeholder="Municipio" type="text" required><br>
+                        <label><h4>Código Postal</h4></label>
+                        <input class="form-control" name="Cp" autocomplete="postal-code" placeholder="Código Postal" type="text"><br>
+                        <label><h4>Red Social</h4></label>
+                        <input class="form-control" name="Red" placeholder="Red Social" type="text"><br>
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    font-size: 62.5%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-
-
-@media only screen and (max-width: 1000px) {
-    li {
-        list-style: none;
-    }
-    
-    .body-signing {
-        background-color: var(--fondo);
-    }
-    
-    
-    .main-container-sign_in {
-        display: flex;
-        justify-content: center;
-        margin-top: 5vh;
-    }
-    
-    
-    .section-container {
-        background-color: var(--contenedores);
-        border-radius: 25px;
-        min-width: 300px;
-        
-        
-    }
-    
-    .container-iner {
-        margin-top: 5%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .iner-singup  {
-        margin-bottom: 4%;
-        min-width: 260px;
-        color: white;
-        font-size: 2rem;
-        width: 60vw;
-        text-align: center;
-        font-weight: 600;
-        text-decoration: none;
-        list-style: none;
-    }
-    
-    .form-container {
-        display: flex;
-        flex-direction: column;
-    }
-
-
-    .logininput {
-        border:  2px solid;
-        border-color: var(--fondo);
-        outline: none;
-        background-color: var(--fondo);
-        padding: 15px;
-        border-radius: 30px;
-        font-size: 1rem;
-        min-width: 260px;
-        margin-bottom: 2.5vh;
-        color: var(--botones);
-    }
-    
-    .logininput:hover {
-        border-style: solid;
-        border-color: var(--botones);
-    }
-    
-    .iner-botons {
-        color: rgba(255, 255, 255, 0.452);
-        font-size: 1.5rem;
-        font-weight: 500;
-        text-align: center;
-        margin-bottom: 2%;
-    }
-    
-    .iner-sign-button{
-        margin-top: 2vh;
-        margin-bottom: 1vh;
-        background-color: var(--botones);
-        border: none;
-        font-size: 2rem;
-        font-weight: 600;
-        width: 30vw;
-        border-radius: 15px;
-        padding: 8px;
-        color: rgba(0, 0, 0, 0.712);
-        min-width: 260px;
-        cursor: pointer;
-    }
-
-    .iner-sign-button:hover {
-        color: rgb(255, 255, 255);
-        box-shadow: 3px 3px 2px 2px rgba(17, 17, 17, 0.911);
-    }
-   
-    .iner-create-acount{
-        align-items: center;
-        margin-top: 4%;
-        margin-bottom: 4%;
-    }
-    
-    .iner-create-acount span {
-        color: rgba(255, 255, 255, 0.452);
-        font-size: 1.5rem; 
-    }
-    
-    .iner-create-acount a {
-        font-size: 1.5rem; 
-        color: var(--botones);
-        text-decoration: none;
-    }
-    
-    .slidery {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        width: 100%;
-        height: 45vh;
-        min-height: 200px;
-        overflow-y: scroll;
-        scroll-snap-type: y proximity;
-    }
-    
-    
-    .slidery .container-slidery {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media only screen and (min-width: 1000px) {
-    li {
-        list-style: none;
-    }
-    
-    .body-signing {
-        background-color: var(--fondo);
-    }
-    
-    
-    .main-container-sign_in {
-        display: flex;
-        justify-content: center;
-        margin-top: 5vh;
-        margin-bottom: 5h;
-    }
-    
-    
-    .section-container {
-        background-color: var(--contenedores);
-        border-radius: 25px;
-        min-width: 350px;
-        min-height: 450px;
-    }
-    
-    .container-iner {
-        margin-top: 3%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .iner-singup  {
-        min-width: 260px;
-        color: white;
-        font-size: 5rem;
-        width: 60vw;
-        text-align: center;
-        font-weight: 600;
-        text-decoration: none;
-        list-style: none;
-        margin-bottom: 1%;
-    }
-    
-    .form-container {
-        display: flex;
-        flex-direction: column;
-    }
-
-
-    .logininput {
-        border:  2px solid;
-        border-color: var(--fondo);
-        outline: none;
-        background-color: var(--fondo);
-        padding: 20px;
-        border-radius: 30px;
-        font-size: 2rem;
-        min-width: 260px;
-        margin-bottom: 2.5vh;
-        color: var(--botones);
-    }
-
-    .logininput:hover {
-        border-style: solid;
-        border-color: var(--botones);
-    }
-    
-    .iner-botons {
-        color: rgba(255, 255, 255, 0.452);
-        font-size: 2.5rem;
-        font-weight: 500;
-        width: 100%;
-        text-align: center;
-        margin-bottom: 1%;
-    }
-    
-    .iner-sign-button{
-        margin-top: 3vh;
-        margin-bottom: 1vh;
-        background-color: var(--botones);
-        border: none;
-        font-size: 4rem;
-        font-weight: 600;
-        width: 30vw;
-        border-radius: 15px;
-        padding: 8px;
-        color: rgba(0, 0, 0, 0.712);
-        min-width: 260px;
-        cursor: pointer;
-    }
-
-    .iner-sign-button:hover {
-        color: rgb(255, 255, 255);
-        box-shadow: 3px 3px 2px 2px rgba(17, 17, 17, 0.911);
-    }
-   
-    .iner-create-acount{
-        align-items: center;
-        margin-top: 2%;
-        margin-bottom: 2%;
-    }
-    
-    .iner-create-acount span {
-        color: rgba(255, 255, 255, 0.452);
-        font-size: 3rem;
-        width: 75%; 
-    }
-    
-    .iner-create-acount a {
-        color: rgba(255, 255, 255, 0.452);
-        font-size: 3rem;
-        width: 75%; 
-        margin-left: 10px;
-        color: var(--botones);
-        text-decoration: none;
-    }
-    
-    
-    .slidery {
-        
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        width: 100%;
-        height: 55vh;
-        min-height: 200px;
-        overflow-y: scroll;
-        scroll-snap-type: y proximity;
-    }
-    
-    
-    .slidery .container-slidery {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    ::-webkit-scrollbar {
-        width: 10px;
-        background: var(--fondo);
-    }
-    ::-webkit-scrollbar-thumb {
-        background: var(--contenedores);
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--botones);
-    }
-}
-</style>
+                        <input class="btn btn-success" type="submit" value="Crear cuenta">
+                        <a href="index.htm">Iniciar sesión</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
-
-

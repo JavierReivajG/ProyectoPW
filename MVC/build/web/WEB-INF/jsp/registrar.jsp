@@ -8,6 +8,8 @@
         <title>Registrar</title>
     </head>
     <body>
+    <center>
+        <h3>Programa de Resultados Electorales Preliminares 2021</h3>
           <div class="container mt-4 col-lg-4">
             <div class = "card border-info ">
                 <div class="card-header bg-info">
@@ -16,9 +18,9 @@
                 <div class ="card-body">
                     <form method="POST">
 
-                        <label>Numero de Casilla</label><BR>
+                        <label><h4>Numero de Casilla</h4></label><BR>
                         <input type="number" name="id" class="form-control" min="1" pattern="^[0-9]+" step="1" required>
-                        <label>Casilla</label>
+                        <label><h4>Casilla</h4></label>
                         <!--<input type="text" name="cas" class="form-control">-->
                         <select name="cas" class="form-control">
                             <option value="Basica" selected>Básica</option>
@@ -27,7 +29,7 @@
                             <option value="Extraordinaria">Extraordinaria</option>
                             <option value="Otra">Otra</option>
                         </select>
-                        <label>Seccional</label>
+                        <label><h4>Seccional</h4></label>
                         
                         <select name="sec" class="form-control">
                             <option value = "2650">2650</option>
@@ -111,8 +113,42 @@
 <option value = "2728">2728</option>
 <option value = "2729">2729</option>
                         </select><BR>
+                        
+                        <hr>
+                        
+                        <label><h4>Candidatura</h4></label>
+                        <select name = "can" class="form-control">
+                            <option value = "1">Presidente Municipal de Tonalá</option>
+                            <option value = "3">Diputado Local</option>
+                            <option value = "2">Diputado Federal</option>
+                        </select><BR>
+                        
+                        <label><h4>Partido Político</h4></label>
+                        <select name="par" class="form-control">
+                            <option value="15" selected>Seleccionar</Option>
+                            <option value="5">PAN</option>
+                            <option value="6">PRD</option>
+                            <option value="4">PRI</option>
+                            <option value="3">VERDE ECOLÓGISTA</option>
+                            <option value="2">PT</option>
+                            <option value="8">MOVIMIENTO CIUDADANO</option>
+                            <option value="1">MORENA</option>
+                            <option value="10">PES</option>
+                            <option value="7">REDES SOCIALES PROGRESISTAS (RSP)</option>
+                            <option value="9">FUERZA MÉXICO</option>
+                            <option value="12">HAGAMOS</option>
+                            <option value="13">SOMOS</option>
+                            <option value="11">FUTURO</option>
+                            <option value="14">INDEPENDIENTE</option>
+                            <option value="16">Juntos Haremos Historia</option>
+                            <option value="17">Va Por México</option>
+                        </select><BR>
+                        
+                        <label><h4>Votos</h4></label>
+                        <input type="number" name="vot" class="form-control" min="1" pattern="^[0-9]+" step="1" required><BR>
                         <input type="submit" value="Registrar" class="btn btn-success">
-                        <a href="sign_in.htm">Regresar</a>
+                        <a href="conteo.htm">Consultar conteo de votos</a><br>
+                        <a href="index.htm">Cambiar de usuario</a>
                     </form>
                 </div>
             </div>

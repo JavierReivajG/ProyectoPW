@@ -3,7 +3,6 @@ package Controller;
 
 import Config.Conexion;
 import Entidad.Registro;
-import Entidad.Voto;
 import Entidad.Usuario;
 import java.util.List;
 import java.util.Properties;
@@ -32,91 +31,30 @@ public class Controlador {
     public static String Email, Pass;
     String tipUs;
     List datos, datos1, datos2, usuarios;
-        
-    @RequestMapping("index.htm")
-    public ModelAndView Listar(){
-        String sql="SELECT c.numero_casilla,puesto,alianza AS \"Alianza_o_Partido\", SUM(no_votos) Total_Votos\n" +
-"FROM registros r\n" +
-"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
-"JOIN partidos p ON r.partido_id = p.partido_id\n" +
-"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
-"WHERE alianza IS NOT NULL and cn.puesto = 'Diputado Federal'\n" +
-"GROUP BY c.numero_casilla,alianza,puesto\n" +
-"UNION\n" +
-"SELECT c.numero_casilla,puesto,nombre AS \"Alianza_o_Partido\", SUM(no_votos) as Total_Votos\n" +
-"FROM registros r\n" +
-"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
-"JOIN partidos p ON r.partido_id = p.partido_id\n" +
-"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
-"WHERE cn.puesto = 'Diputado Federal'\n" +
-"GROUP BY c.numero_casilla,nombre,puesto\n" +
-"ORDER BY puesto,Total_Votos DESC;";
-        datos=this.jdbcTemplate.queryForList(sql);
-        mav.addObject("lista",datos);
-        String sql2 = "SELECT numero_casilla,puesto,alianza AS \"Alianza_o_Partido\", SUM(no_votos) Total_Votos\n" +
-"FROM registros r\n" +
-"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
-"JOIN partidos p ON r.partido_id = p.partido_id\n" +
-"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
-"WHERE alianza IS NOT NULL and cn.puesto = 'Diputado Local'\n" +
-"GROUP BY numero_casilla,alianza,puesto\n" +
-"UNION\n" +
-"SELECT numero_casilla,puesto,nombre AS \"Alianza_o_Partido\", SUM(no_votos) as Total_Votos\n" +
-"FROM registros r\n" +
-"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
-"JOIN partidos p ON r.partido_id = p.partido_id\n" +
-"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
-"WHERE cn.puesto = 'Diputado Local'\n" +
-"GROUP BY numero_casilla,nombre,puesto\n" +
-"ORDER BY puesto,Total_Votos DESC;";
-        datos1=this.jdbcTemplate.queryForList(sql2);
-        mav.addObject("lista1",datos1);
-        String sql3 = "SELECT numero_casilla,puesto,alianza AS \"Alianza_o_Partido\", SUM(no_votos) Total_Votos\n" +
-"FROM registros r\n" +
-"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
-"JOIN partidos p ON r.partido_id = p.partido_id\n" +
-"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
-"WHERE alianza IS NOT NULL and cn.puesto = 'Presidente Municipal'\n" +
-"GROUP BY numero_casilla,alianza,puesto\n" +
-"UNION\n" +
-"SELECT numero_casilla,puesto,nombre AS \"Alianza_o_Partido\", SUM(no_votos) as Total_Votos\n" +
-"FROM registros r\n" +
-"JOIN candidaturas cn ON cn.candidatura_id = r.candidatura_id\n" +
-"JOIN partidos p ON r.partido_id = p.partido_id\n" +
-"JOIN casillas c ON c.casilla_id = r.casilla_id\n" +
-"WHERE cn.puesto = 'Presidente Municipal'\n" +
-"GROUP BY numero_casilla,nombre,puesto\n" +
-"ORDER BY puesto,Total_Votos DESC;";
-        datos2=this.jdbcTemplate.queryForList(sql3);
-        mav.addObject("lista2",datos2);
-        mav.setViewName("index");
-        return mav;
-    }
-    
-    @RequestMapping(value = "sign_in.htm", method = RequestMethod.GET)
-    public ModelAndView Sign_in(){
+ 
+    @RequestMapping(value = "index.htm", method = RequestMethod.GET)
+    public ModelAndView Index(){
         //String sql="Select * from registros";
         //datos=this.jdbcTemplate.queryForList(sql);
         //mav.addObject("lista",datos);
         mav.addObject(new Usuario());
-        mav.setViewName("sign_in");
+        mav.setViewName("index");
         return mav;
     }
     
-    @RequestMapping (value = "sign_in.htm", method = RequestMethod.POST)
-    public ModelAndView Sign_in(Usuario us){
+    @RequestMapping (value = "index.htm", method = RequestMethod.POST)
+    public ModelAndView Index(Usuario us){
         try{
         Email = us.getEmail();
         Pass = us.getPass();
         String sql = "Select tipo_usuario from usuarios where email = '"+Email+"' AND contraseña = '"+Pass+"'";
         tipUs = (String) jdbcTemplate.queryForObject(sql, new Object[] {}, String.class);
-        if (tipUs.equals("Autorizado")){
+        if (tipUs.equals("Autorizado") || tipUs.equals("Administrador")){
         return new ModelAndView("redirect:/registrar.htm");
         }
         else{
         return new ModelAndView("redirect:/esperaValid.htm");
         }
-        
         }catch(Exception e){
             return new ModelAndView("redirect:/incorrect.htm");
         }
@@ -183,30 +121,11 @@ public class Controlador {
     public ModelAndView Registrar(Registro r){
         String sql = "Insert into casillas (numero_casilla, tipo_casilla, seccion) values(?,?,?)";
         this.jdbcTemplate.update(sql, r.getId(), r.getCas(),r.getSec());
-        return new ModelAndView("redirect:/votar.htm");
+        sql = "INSERT INTO registros (candidatura_id, partido_id, no_votos, casilla_id) values (?,?,?,(SELECT MAX(casilla_id) FROM casillas))";
+        this.jdbcTemplate.update(sql,r.getCan(),r.getPar(),r.getVot());
+        return new ModelAndView("redirect:/registrar.htm");
     }
-    
-    @RequestMapping(value = "votar.htm", method = RequestMethod.GET)
-    public ModelAndView Votar(){
-        try{
-        if (tipUs.equals("Autorizado")){
-        mav.addObject(new Voto());
-        mav.setViewName("votar");
-        return mav;
-        } else{
-            return new ModelAndView("redirect:/esperaValid.htm");
-        }
-        } catch(Exception e){
-            return new ModelAndView("redirect:/emailNotFound.htm");
-        }
-    }
-    @RequestMapping(value = "votar.htm", method = RequestMethod.POST)
-    public ModelAndView Votar(Voto v){
-        String sql = "INSERT INTO registros (candidatura_id, partido_id, no_votos, casilla_id) values (?,?,?,(SELECT MAX(casilla_id) FROM casillas))";
-        this.jdbcTemplate.update(sql,v.getCan(),v.getPar(),v.getVot());
-        return new ModelAndView("redirect:/votar.htm");
-    }
-    
+   
     @RequestMapping("conteo.htm")
     public ModelAndView Contar(){
         try{

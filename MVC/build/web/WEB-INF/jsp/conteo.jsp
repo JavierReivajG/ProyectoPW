@@ -78,7 +78,7 @@
                     <hr>
                 </div>
                 <div class="card-header bg-info text-white">
-                    <a class = "btn btn-light" href = "votar.htm">Regresar</a>
+                    <a class = "btn btn-light" href = "registrar.htm">Regresar</a>
                 </div>
             </div>
         </div>

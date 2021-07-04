@@ -22,7 +22,6 @@
                 <prop key="index.htm">controlador</prop>
                 <prop key="registrar.htm">controlador</prop>
                 <prop key="sign_up.htm">controlador</prop>
-                <prop key="votar.htm">controlador</prop>
                 <prop key="sign_in.htm">controlador</prop>
                 <prop key="sign_in_admin.htm">controlador</prop>
                 <prop key="esperaValid.htm">controlador</prop>

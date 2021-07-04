@@ -8,6 +8,8 @@
         <title>Ingresar Como Administrador</title>
     </head>
     <body>
+        <center>
+        <h3>Programa de Resultados Electorales Preliminares 2021</h3>
           <div class="container mt-4 col-lg-4">
             <div class = "card border-info ">
                 <div class="card-header bg-info">
@@ -16,13 +18,13 @@
                 <div class ="card-body">
                     <form method="POST">
                                                 
-                        <label>Correo</label><BR>
-                        <input autocomplete="username" class="logininput" placeholder="correo@ejemplo.com" type="text" name="Email" id="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="La direccion de correo electronica no es valida" required><BR><BR>
-                        <label>Contraseña</label><BR>
-                        <input autocomplete="current-password" class="logininput" placeholder="contraseña" type="password" name="Pass" id="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required><BR><BR>
+                        <label><h4>Correo</h4></label><BR>
+                        <input autocomplete="username" class="form-control" placeholder="correo@ejemplo.com" type="text" name="Email" id="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="La direccion de correo electronica no es valida" required><BR>
+                        <label><h4>Contraseña</h4></label><BR>
+                        <input autocomplete="current-password" class="form-control" placeholder="contraseña" type="password" name="Pass" id="password" pattern=".{5,}" title="La contraseña tiene que contener al menos 5 caracteres" required><BR><BR>
                         
                         <input type="submit" value="Ingresar" class="btn btn-success">
-                        <a href="sign_in.htm">Regresar</a>
+                        <a href="index.htm">Regresar</a>
 
                     </form>
                 </div>

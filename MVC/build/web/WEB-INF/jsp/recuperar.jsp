@@ -19,6 +19,8 @@
 	</script>
     </head>
     <body>
+        <center>
+        <h3>Programa de Resultados Electorales Preliminares 2021</h3>
           <div class="container mt-4 col-lg-4">
             <div class = "card border-info ">
                 <div class="card-header bg-info">
@@ -27,10 +29,11 @@
                 <div class ="card-body">
                     <form method="POST">
                         
-                        <label>Correo Electrónico</label>
+                        <label><h4>Correo Electrónico</h4></label>
                         <input name="Email" class="form-control" autocomplete="email" placeholder="Correo" type="email" required><BR>
                         
                         <input type="submit" value="Enviar" onclick="alertar()" class="btn btn-success">
+                        <a href="index.htm">Regresar</a>
 
                     </form>
                 </div>
