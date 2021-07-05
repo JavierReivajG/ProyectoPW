@@ -99,7 +99,7 @@ public class Controlador {
         this.jdbcTemplate.update(sql, u.getNom(), u.getApe(), u.getEmail(), u.getPass(), u.getTel(), u.getRed());
         sql = "INSERT INTO domicilios (usuario_id, municipio, calle, numero, colonia, cp) values ((SELECT MAX(usuario_id) FROM usuarios),?,?,?,?,?)";
         this.jdbcTemplate.update(sql,u.getMun(),u.getCalle(),u.getNum(),u.getCol(),u.getCp());
-        return new ModelAndView("redirect:/sign_in.htm");
+        return new ModelAndView("redirect:/index.htm");
     }
     
     @RequestMapping(value = "registrar.htm", method = RequestMethod.GET)
@@ -283,7 +283,7 @@ public class Controlador {
         }catch(Exception e){
             return new ModelAndView("redirect:/emailNotFound.htm");
         }
-        return new ModelAndView("redirect:/sign_in.htm");
+        return new ModelAndView("redirect:/index.htm");
     }
     
     @RequestMapping ("emailNotFound.htm")
